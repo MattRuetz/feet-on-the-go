@@ -58,5 +58,3 @@
 		}
 	}
 </style>
-
-{@render children()}

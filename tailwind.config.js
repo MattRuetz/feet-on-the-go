@@ -6,7 +6,12 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
 
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Libre Franklin', 'system-ui', 'sans-serif'],
+        display: ['DM Serif Display', 'Georgia', 'serif'],
+      },
+    }
   },
 
   plugins: [typography, forms]
