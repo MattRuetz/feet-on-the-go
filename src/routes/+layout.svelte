@@ -23,82 +23,38 @@
 </footer>
 
 <style>
-	/* Reset and base styles */
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		font-family: Arial, sans-serif;
-		font-size: 18px;
-		line-height: 1.6;
-		color: #333;
-	}
-
-	/* Header styles */
 	header {
-		background-color: #f8f8f8;
-		padding: 1rem;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		@apply bg-gray-50 p-4 shadow-sm;
 	}
 
 	nav {
-		max-width: 1200px;
-		margin: 0 auto;
-		display: flex;
-		gap: 2rem;
-		justify-content: center;
-		flex-wrap: wrap;
+		@apply max-w-7xl mx-auto flex gap-8 flex-wrap justify-center;
 	}
 
 	nav a {
-		color: #333;
-		text-decoration: none;
-		font-size: 1.25rem;
-		padding: 0.5rem 1rem;
-		border-radius: 4px;
-		transition: background-color 0.2s;
-	}
-
-	nav a:hover {
-		background-color: #e0e0e0;
+		@apply text-gray-800 no-underline text-xl px-4 py-2 rounded-md 
+		transition-colors hover:bg-gray-200;
 	}
 
 	nav a.active {
-		background-color: #007bff;
-		color: white;
+		@apply bg-blue-600 text-white;
 	}
 
-	/* Main content area */
 	main {
-		max-width: 1200px;
-		margin: 2rem auto;
-		padding: 0 1rem;
-		min-height: calc(100vh - 200px);
+		@apply my-8 min-h-[calc(100vh-200px)];
 	}
 
-	/* Footer styles */
 	footer {
-		background-color: #f8f8f8;
-		padding: 2rem 1rem;
-		text-align: center;
-		margin-top: 2rem;
+		@apply bg-gray-50 py-8 px-4 text-center mt-8;
 	}
 
 	footer p {
-		margin: 0.5rem 0;
-		font-size: 1rem;
+		@apply my-2 text-base;
 	}
 
-	/* Responsive adjustments */
 	@media (max-width: 600px) {
 		nav {
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
-		}
-
-		nav a {
-			width: 100%;
-			text-align: center;
+			@apply flex-col items-center gap-2;
 		}
 	}
 </style>
