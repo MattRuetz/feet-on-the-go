@@ -1,15 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
-  import { library, dom } from "@fortawesome/fontawesome-svg-core";
-  import {
-    faCheck,
-    faPhone,
-    faLocationDot,
-    faChevronLeft,
-    faChevronRight,
-    faStar,
-  } from "@fortawesome/free-solid-svg-icons";
+  import { dom } from "@fortawesome/fontawesome-svg-core";
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import { faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
   // custom actions
   import { inview } from "$lib/actions";
   import ReviewSection from "$lib/components/ReviewSection.svelte";
@@ -17,30 +11,23 @@
   const services = [
     {
       title: "Foot Care",
+      anchor: "foot-care",
       description: "Professional foot care services",
-      image: "/images/foot-care.jpeg",
+      image: "/images/foot-care.png",
     },
     {
       title: "Home Visits",
+      anchor: "home-visits",
       description: "Convenient care in your home",
-      image: "/images/home-visits.jpeg",
+      image: "/images/home-visits.png",
     },
     {
       title: "Diabetic Care",
+      anchor: "diabetic-care",
       description: "Specialized diabetic foot care",
-      image: "/images/diabetic-care.jpeg",
+      image: "/images/diabetes.jpg",
     },
   ];
-
-  // Add icons to library
-  library.add(
-    faCheck,
-    faPhone,
-    faLocationDot,
-    faChevronLeft,
-    faChevronRight,
-    faStar,
-  );
 
   let mounted = $state(false);
   let serviceVisibility = $state(services.map(() => false));
@@ -66,7 +53,7 @@
 </svelte:head>
 
 <section class="hero relative">
-  <div class="hero-content max-w-5xl px-4 sm:px-8 mx-auto h-full relative z-10">
+  <div class="hero-content narrow-container h-full relative z-10">
     {#if mounted}
       <div
         class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
@@ -83,14 +70,14 @@
             href="tel:+15196546363"
             class="flex items-center space-x-4 text-xl hover:text-sky-600 transition-colors"
           >
-            <i class="fa-solid fa-phone fa-lg"></i>
+            <FontAwesomeIcon icon={faPhone} class="fa-lg" />
             <span>519-654-6363</span>
           </a>
           <a
             href="/contact#location"
             class="flex items-center space-x-4 text-xl hover:text-sky-600 transition-colors"
           >
-            <i class="fa-solid fa-location-dot fa-lg"></i>
+            <FontAwesomeIcon icon={faLocationDot} class="fa-lg" />
             <span>Kitchener-Waterloo, Ontario</span>
           </a>
         </div>
@@ -117,7 +104,7 @@
 </section>
 
 <section class="welcome">
-  <div class="container text-center space-y-8">
+  <div class="narrow-container text-center space-y-8">
     <h2>Expert Nursing Foot Care at Your Doorstep</h2>
     <div class="minimal-divider"></div>
     <p>
@@ -134,9 +121,9 @@
   </div>
 </section>
 
-<section class="services">
+<section class="services container mx-auto">
   <h2>Our Services</h2>
-  <div class="service-grid wide-container">
+  <div class="service-grid">
     {#each services as service, i}
       <div
         class="service-card"
@@ -147,15 +134,18 @@
         }}
       >
         {#if serviceVisibility[i]}
-          <div transition:fade={{ duration: 600, delay: i * 200 }}>
+          <div
+            transition:fade={{ duration: 600, delay: i * 200 }}
+            class="space-y-4"
+          >
             <img
               src={service.image}
               alt={service.title}
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="w-full h-48 object-cover rounded-lg"
             />
             <h3>{service.title}</h3>
             <p>{service.description}</p>
-            <a href={`/services#${service.title}`} class="outline-btn mt-8"
+            <a href={`/services#${service.anchor}`} class="outline-btn mt-8"
               >Learn More</a
             >
           </div>
@@ -167,7 +157,7 @@
 
 <section class="info-section-1">
   <div
-    class="wide-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
+    class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
   >
     <div
       class="col-span-1 h-[300px] lg:h-auto"
@@ -209,7 +199,7 @@
 
 <section class="info-section-2">
   <div
-    class="wide-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
+    class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
   >
     <div class="col-span-1 space-y-6 py-4 lg:py-8 order-2 lg:order-1">
       <div class="space-y-4">
@@ -256,7 +246,7 @@
 
 <section class="cta">
   <div class="cta-background-overlay"></div>
-  <div class="container space-y-8">
+  <div class="cta-content space-y-8">
     <h2>Ready to Schedule Your Appointment?</h2>
     <p>We're here to help with all your foot care needs</p>
     <a href="/contact" class="cta-button">Contact Us Today</a>
@@ -265,7 +255,7 @@
 
 <style>
   .hero {
-    @apply bg-gray-50 text-left -mt-8 h-[400px] overflow-hidden;
+    @apply bg-gray-50 text-left -mt-8 h-[700px] max-h-[calc(100vh-64px)] overflow-hidden;
   }
 
   .welcome {
@@ -294,17 +284,17 @@
     @apply absolute inset-0 bg-black/30 z-10;
   }
 
-  .cta .container {
-    @apply text-center bg-gray-50 rounded-xl py-8 sm:py-16 px-4 relative z-20;
+  .cta-content {
+    @apply narrow-container text-center bg-gray-50 rounded-xl py-8 sm:py-16 px-4 relative z-20;
   }
 
   .info-section-1 {
-    /* @apply bg-gray-50; */
-    @apply py-36;
+    @apply bg-gray-50;
+    /* @apply container mx-auto py-36; */
   }
 
   .info-section-2 {
-    @apply bg-sky-50 py-36;
+    @apply bg-sky-50;
   }
 
   @media (max-width: 640px) {

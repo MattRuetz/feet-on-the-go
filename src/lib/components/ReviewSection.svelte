@@ -3,6 +3,9 @@
   import { fade } from "svelte/transition";
   import { inview } from "$lib/actions";
 
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import { faStar } from "@fortawesome/free-solid-svg-icons";
+
   let reviews = $state([]);
 
   let mounted = $state(false);
@@ -36,7 +39,7 @@
 
 {#if reviews.length > 0 && mounted}
   <section class="reviews" in:fade={{ duration: 800 }}>
-    <div class="container">
+    <div class="container mx-auto">
       <h2>What Our Clients Say</h2>
       <div class="minimal-divider"></div>
 
@@ -58,7 +61,7 @@
                 <p class="review-text">"{review.review}"</p>
                 <div class="stars mb-4">
                   {#each Array(review.stars).fill(0) as _}
-                    <i class="fa-solid fa-star text-yellow-500"></i>
+                    <FontAwesomeIcon icon={faStar} class="text-yellow-500" />
                   {/each}
                   {review.stars} / 5
                 </div>
@@ -79,7 +82,7 @@
 
 <style>
   .reviews {
-    @apply py-16 bg-gradient-to-b from-sky-50 to-white;
+    @apply pb-24 bg-gradient-to-b from-sky-50 to-white;
   }
 
   .reviews-grid {

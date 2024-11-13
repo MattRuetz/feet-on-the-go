@@ -2,7 +2,12 @@
   import "../app.css";
   import { page } from "$app/stores";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
-  import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+  import {
+    faBars,
+    faXmark,
+    faPhone,
+    faLocationDot,
+  } from "@fortawesome/free-solid-svg-icons";
 
   //   library.add(faBars, faXmark);
 
@@ -18,7 +23,7 @@
 </script>
 
 <header class="sticky top-0 bg-white z-50">
-  <div class="container mx-auto px-4">
+  <div class="narrow-container">
     <div class="flex items-center justify-between h-16">
       <a href="/" class="hover:scale-105 transition-transform">
         <img
@@ -65,7 +70,7 @@
 </main>
 
 <footer>
-  <div class="footer-content wide-container">
+  <div class="footer-content">
     <div class="footer-brand">
       <a href="/" class="footer-logo">
         <img
@@ -93,11 +98,11 @@
       <h4>Contact Info</h4>
       <div class="contact-details">
         <a href="tel:+15196546363" class="flex items-center space-x-2">
-          <i class="fa-solid fa-phone"></i>
+          <FontAwesomeIcon icon={faPhone} />
           <span>519-654-6363</span>
         </a>
         <a href="/contact#location" class="flex items-center space-x-2">
-          <i class="fa-solid fa-location-dot"></i>
+          <FontAwesomeIcon icon={faLocationDot} />
           <span>Kitchener-Waterloo, Ontario</span>
         </a>
       </div>
@@ -152,7 +157,7 @@
   }
 
   .footer-content {
-    @apply mx-auto grid grid-cols-1 md:grid-cols-3 gap-12;
+    @apply container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12;
   }
 
   .footer-brand {

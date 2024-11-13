@@ -35,7 +35,7 @@
 }
 
 @layer components {
-  .container {
+  .narrow-container {
     @apply max-w-5xl mx-auto px-4;
   }
 
