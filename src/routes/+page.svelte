@@ -133,23 +133,21 @@
           onenter: () => setTimeout(() => handleInView(i), i * 200),
         }}
       >
-        {#if serviceVisibility[i]}
-          <div
-            transition:fade={{ duration: 600, delay: i * 200 }}
-            class="space-y-4"
+        <div
+          transition:fade={{ duration: 600, delay: i * 200 }}
+          class="space-y-4"
+        >
+          <img
+            src={service.image}
+            alt={service.title}
+            class="w-full h-48 object-cover rounded-lg"
+          />
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <a href={`/services#${service.anchor}`} class="outline-btn mt-8"
+            >Learn More</a
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              class="w-full h-48 object-cover rounded-lg"
-            />
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-            <a href={`/services#${service.anchor}`} class="outline-btn mt-8"
-              >Learn More</a
-            >
-          </div>
-        {/if}
+        </div>
       </div>
     {/each}
   </div>
@@ -160,20 +158,19 @@
     class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
   >
     <div
-      class="col-span-1 h-[300px] lg:h-auto"
+      class="col-span-1 h-[300px] lg:h-auto img-container"
+      class:visible={imageVisibility[0]}
       use:inview={{
         threshold: 0.3,
         onenter: () => (imageVisibility[0] = true),
       }}
     >
-      {#if imageVisibility[0]}
-        <img
-          src="/images/calusesSanding.jpeg"
-          alt="Nursing Foot Care"
-          class="w-full h-full object-cover rounded-lg"
-          transition:fade={{ duration: 600 }}
-        />
-      {/if}
+      <img
+        src="/images/calusesSanding.jpeg"
+        alt="Nursing Foot Care"
+        class="w-full h-full object-cover rounded-lg shadow"
+        transition:fade={{ duration: 600 }}
+      />
     </div>
     <div class="col-span-1 space-y-6 py-4 lg:py-8">
       <div class="space-y-4">
@@ -190,7 +187,7 @@
           area.
         </p>
       </div>
-      <div class="my-8">
+      <div class="pt-4">
         <a href="/contact" class="cta-button">Book an Appointment</a>
       </div>
     </div>
@@ -218,26 +215,25 @@
           potentially aiding in the management of conditions such as peripheral neuropathy,
           plantar fasciitis, and venous insufficiency.
         </p>
-        <div class="my-8">
+        <div class="pt-4">
           <a href="/contact" class="cta-button">Book an Appointment</a>
         </div>
       </div>
     </div>
     <div
-      class="col-span-1 h-[300px] lg:h-auto order-1 lg:order-2"
+      class="col-span-1 h-[300px] lg:h-auto order-1 lg:order-2 img-container"
+      class:visible={imageVisibility[1]}
       use:inview={{
         threshold: 0.3,
         onenter: () => (imageVisibility[1] = true),
       }}
     >
-      {#if imageVisibility[1]}
-        <img
-          src="/images/footMassage.jpeg"
-          alt="Foot Massage"
-          class="w-full h-full object-cover rounded-lg"
-          transition:fade={{ duration: 600 }}
-        />
-      {/if}
+      <img
+        src="/images/footMassage.jpeg"
+        alt="Foot Massage"
+        class="w-full h-full object-cover rounded-lg shadow"
+        transition:fade={{ duration: 600 }}
+      />
     </div>
   </div>
 </section>
@@ -267,10 +263,11 @@
   }
 
   .service-card {
-    @apply bg-gray-50 p-4 sm:p-8 rounded-lg text-center opacity-0 transform translate-y-4 transition-all duration-500;
+    @apply bg-gray-50 p-4 sm:p-8 rounded-lg text-center opacity-0 shadow transform translate-y-4 transition-all duration-500;
   }
 
-  .service-card.visible {
+  .service-card.visible,
+  .img-container.visible {
     @apply opacity-100 translate-y-0;
   }
 
@@ -285,12 +282,16 @@
   }
 
   .cta-content {
-    @apply narrow-container text-center bg-gray-50 rounded-xl py-8 sm:py-16 px-4 relative z-20;
+    @apply narrow-container text-center bg-white shadow-lg rounded-xl py-8 sm:py-16 px-4 relative z-20;
   }
 
   .info-section-1 {
     @apply bg-gray-50;
     /* @apply container mx-auto py-36; */
+  }
+
+  .img-container {
+    @apply opacity-0 translate-y-4 transition-all duration-500;
   }
 
   .info-section-2 {

@@ -52,27 +52,25 @@
               onenter: () => setTimeout(() => handleInView(i), i * 200),
             }}
           >
-            {#if reviewVisibility[i]}
-              <div
-                class="review-card"
-                transition:fade={{ duration: 300 }}
-                class:visible={reviewVisibility[i]}
-              >
-                <p class="review-text">"{review.review}"</p>
-                <div class="stars mb-4">
-                  {#each Array(review.stars).fill(0) as _}
-                    <FontAwesomeIcon icon={faStar} class="text-yellow-500" />
-                  {/each}
-                  {review.stars} / 5
-                </div>
-                <div class="review-meta">
-                  <p class="reviewer-name">- {review.name}</p>
-                  <!-- <p class="review-date">
+            <div
+              class="review-card"
+              transition:fade={{ duration: 300 }}
+              class:visible={reviewVisibility[i]}
+            >
+              <p class="review-text">"{review.review}"</p>
+              <div class="stars mb-4">
+                {#each Array(review.stars).fill(0) as _}
+                  <FontAwesomeIcon icon={faStar} class="text-yellow-500" />
+                {/each}
+                {review.stars} / 5
+              </div>
+              <div class="review-meta">
+                <p class="reviewer-name">- {review.name}</p>
+                <!-- <p class="review-date">
                   {formatDate(review.date)}
                   </p> -->
-                </div>
               </div>
-            {/if}
+            </div>
           </div>
         {/each}
       </div>
@@ -90,7 +88,11 @@
   }
 
   .review-card {
-    @apply bg-white p-6 rounded-lg shadow-lg shadow-gray-200;
+    @apply bg-white p-6 rounded-lg shadow shadow-gray-300 opacity-0 translate-y-4 transition-all duration-500;
+  }
+
+  .review-card.visible {
+    @apply opacity-100 translate-y-0;
   }
 
   .review-text {
