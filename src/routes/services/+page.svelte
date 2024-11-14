@@ -5,7 +5,7 @@
     faClock,
   } from "@fortawesome/free-solid-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
-  import CTASectionMap from "$lib/components/CTASection+Map.svelte";
+  import CTASection from "$lib/components/CTASection.svelte";
 
   const services = [
     {
@@ -116,7 +116,7 @@
   </div>
 </section>
 
-<CTASectionMap />
+<CTASection />
 
 <style>
   .hero {

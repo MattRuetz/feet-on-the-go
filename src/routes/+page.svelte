@@ -13,16 +13,16 @@
       title: "Foot Care",
       anchor: "foot-care",
       description: "Professional foot care services",
-      image: "/images/foot-care.png",
+      image: "/images/foot-care.jpg",
     },
     {
       title: "Home Visits",
       anchor: "home-visits",
       description: "Convenient care in your home",
-      image: "/images/home-visits.png",
+      image: "/images/happy-patient.png",
     },
     {
-      title: "Diabetic Care",
+      title: "Diabetic Foot Care",
       anchor: "diabetic-care",
       description: "Specialized diabetic foot care",
       image: "/images/diabetes.jpg",
@@ -93,10 +93,10 @@
   </div>
   <div class="absolute inset-0">
     <div
-      class="absolute inset-0 bg-gradient-to-r from-white from-30% via-white/90 via-50% to-transparent z-0"
+      class="absolute inset-0 bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
     ></div>
     <img
-      src="/images/footMassage.jpeg"
+      src="/images/foot-massage2.jpg"
       alt="Professional Foot Care"
       class="w-full h-full object-cover"
     />
@@ -140,7 +140,7 @@
           <img
             src={service.image}
             alt={service.title}
-            class="w-full h-48 object-cover rounded-lg"
+            class="w-full h-42 object-cover rounded-lg"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
@@ -166,7 +166,7 @@
       }}
     >
       <img
-        src="/images/calusesSanding.jpeg"
+        src="/images/elderly-couple.jpg"
         alt="Nursing Foot Care"
         class="w-full h-full object-cover rounded-lg shadow"
         transition:fade={{ duration: 600 }}
@@ -221,7 +221,7 @@
       </div>
     </div>
     <div
-      class="col-span-1 h-[300px] lg:h-auto order-1 lg:order-2 img-container"
+      class="col-span-1 h-[600px] order-1 lg:order-2 img-container"
       class:visible={imageVisibility[1]}
       use:inview={{
         threshold: 0.3,
@@ -229,7 +229,7 @@
       }}
     >
       <img
-        src="/images/footMassage.jpeg"
+        src="/images/foot-massage.jpg"
         alt="Foot Massage"
         class="w-full h-full object-cover rounded-lg shadow"
         transition:fade={{ duration: 600 }}
@@ -242,7 +242,7 @@
 
 <section class="cta">
   <div class="cta-background-overlay"></div>
-  <div class="cta-content space-y-8">
+  <div class="cta-content space-y-8 narrow-container">
     <h2>Ready to Schedule Your Appointment?</h2>
     <p>We're here to help with all your foot care needs</p>
     <a href="/contact" class="cta-button">Contact Us Today</a>
@@ -259,7 +259,7 @@
   }
 
   .service-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8;
   }
 
   .service-card {
@@ -273,8 +273,9 @@
 
   .cta {
     @apply relative;
-    background: url("/images/calusesSanding.jpeg") no-repeat center center;
+    background: url("/images/elderly-couple2.jpg") no-repeat center center;
     background-size: cover;
+    background-position: bottom;
   }
 
   .cta-background-overlay {
@@ -282,7 +283,7 @@
   }
 
   .cta-content {
-    @apply narrow-container text-center bg-white shadow-lg rounded-xl py-8 sm:py-16 px-4 relative z-20;
+    @apply text-center bg-white shadow-lg rounded-xl py-8 sm:py-16 px-4 relative z-20;
   }
 
   .info-section-1 {

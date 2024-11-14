@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { inview } from "$lib/actions";
-  import CTASectionMap from "$lib/components/CTASection+Map.svelte";
+  import CTASection from "$lib/components/CTASection.svelte";
   const timelineItems = [
     {
       year: "Early Career",
@@ -104,7 +104,7 @@
   </div>
 </section>
 
-<CTASectionMap />
+<CTASection />
 
 <style>
   .hero {
