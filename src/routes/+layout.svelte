@@ -52,6 +52,11 @@
         <a href="/services" class:active={$page.url.pathname === "/services"}
           >Services</a
         >
+        <a
+          href="/nursing-foot-care"
+          class:active={$page.url.pathname === "/nursing-foot-care"}
+          >Nursing Foot Care</a
+        >
         <a href="/history" class:active={$page.url.pathname === "/history"}
           >History</a
         >
@@ -89,6 +94,7 @@
       <nav class="">
         <a href="/">Home</a>
         <a href="/services">Services</a>
+        <a href="/nursing-foot-care">Nursing Foot Care</a>
         <a href="/history">History</a>
         <a href="/contact">Contact</a>
       </nav>
