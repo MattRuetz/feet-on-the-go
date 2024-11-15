@@ -24,7 +24,9 @@
 
 <header class="sticky top-0 bg-white z-50">
   <div class="narrow-container">
-    <div class="flex items-center justify-end md:justify-center h-20">
+    <div
+      class="flex items-center justify-between md:justify-center h-16 md:h-20"
+    >
       <!-- <a href="/" class="hover:scale-105 transition-transform">
         <img
           src="/images/footprint-logo.png"
@@ -33,6 +35,9 @@
         />
       </a> -->
 
+      <a href="tel:+15196546363" class="md:hidden mobile-cta-button"
+        ><FontAwesomeIcon icon={faPhone} /> Call Now</a
+      >
       <button
         class="md:hidden p-2"
         onclick={toggleMobileMenu}
@@ -57,14 +62,14 @@
           onclick={() => (isMobileMenuOpen = false)}>Services</a
         >
         <a
+          href="/about"
+          class:active={$page.url.pathname === "/about"}
+          onclick={() => (isMobileMenuOpen = false)}>About</a
+        >
+        <a
           href="/nursing-foot-care"
           class:active={$page.url.pathname === "/nursing-foot-care"}
           onclick={() => (isMobileMenuOpen = false)}>Nursing Foot Care</a
-        >
-        <a
-          href="/history"
-          class:active={$page.url.pathname === "/history"}
-          onclick={() => (isMobileMenuOpen = false)}>History</a
         >
         <a
           class="contact-button"
@@ -110,10 +115,10 @@
           <FontAwesomeIcon icon={faPhone} />
           <span>519-654-6363</span>
         </a>
-        <a href="/contact#location" class="flex items-center space-x-2">
+        <span class="location flex items-center space-x-2">
           <FontAwesomeIcon icon={faLocationDot} />
           <span>Kitchener-Waterloo, Ontario</span>
-        </a>
+        </span>
       </div>
       <a href="/contact" class="footer-cta">Contact Us</a>
     </div>
@@ -260,6 +265,11 @@
     .footer-contact a {
       @apply justify-center py-3 bg-gray-200 text-gray-600 rounded-md  transition-colors;
     }
+
+    .location {
+      @apply hidden;
+    }
+
     .footer-contact a.footer-cta {
       @apply bg-sky-600 text-white w-full;
     }

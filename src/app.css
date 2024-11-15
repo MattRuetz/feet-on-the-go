@@ -48,6 +48,10 @@
     no-underline rounded-lg transition-colors hover:bg-sky-700 w-full sm:w-auto text-center;
   }
 
+  .mobile-cta-button {
+    @apply block rounded-lg md:hidden px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-xl border border-sky-600 text-sky-600 
+  }
+
   .outline-btn {
     @apply inline-block px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-xl bg-transparent text-sky-600 border border-sky-600 no-underline rounded-lg transition-colors hover:bg-sky-600 hover:text-white w-full sm:w-auto text-center;
   }

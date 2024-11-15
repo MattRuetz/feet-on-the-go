@@ -24,7 +24,7 @@
 </section>
 
 <section class="contact-info">
-  <div class="narrow-container grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="narrow-container grid grid-cols-1 md:grid-cols-2 gap-12">
     <div class="contact-details">
       <h2>Get In Touch</h2>
       <div class="space-y-4">
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="contact-form">
+    <div class="contact-form bg-gray-100 p-4 rounded-lg md:bg-transparent">
       <h2>Send a Message</h2>
       <ContactForm />
     </div>
@@ -55,8 +55,15 @@
     @apply max-w-2xl mx-auto mt-4;
   }
 
+  .contact-details {
+    @apply mb-8;
+  }
+
   .contact-link {
-    @apply flex items-center space-x-4 text-2xl transition-colors;
+    @apply flex items-center justify-center p-3 rounded-lg md:justify-start space-x-4 text-lg md:text-2xl transition-colors;
+  }
+  a.contact-link {
+    @apply bg-gray-100;
   }
   a.contact-link:hover {
     @apply text-sky-600;

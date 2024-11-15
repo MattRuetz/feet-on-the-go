@@ -141,10 +141,7 @@
           onenter: () => setTimeout(() => handleInView(i), i * 200),
         }}
       >
-        <div
-          transition:fade={{ duration: 600, delay: i * 200 }}
-          class="space-y-4"
-        >
+        <div in:fade={{ duration: 600, delay: i * 200 }} class="space-y-4">
           <img
             src={service.image}
             alt={service.title}
@@ -177,7 +174,7 @@
         src="/images/elderly-couple.jpg"
         alt="Nursing Foot Care"
         class="w-full h-full object-cover rounded-lg shadow"
-        transition:fade={{ duration: 600 }}
+        in:fade={{ duration: 600 }}
       />
     </div>
     <div class="col-span-1 space-y-6 py-4 lg:py-8">
@@ -241,7 +238,7 @@
         src="/images/foot-massage.jpg"
         alt="Foot Massage"
         class="w-full h-full object-cover rounded-lg shadow"
-        transition:fade={{ duration: 600 }}
+        in:fade={{ duration: 600 }}
       />
     </div>
   </div>
