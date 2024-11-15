@@ -150,4 +150,8 @@
     content: "✓";
     @apply text-sky-600 mr-2 font-bold text-3xl;
   }
+
+  .why-choose-us {
+    @apply pb-28;
+  }
 </style>

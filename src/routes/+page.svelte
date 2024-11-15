@@ -116,11 +116,11 @@
     <h2>Expert Nursing Foot Care at Your Doorstep</h2>
     <div class="minimal-divider"></div>
     <p>
-      Welcome to Feet On The Go, your trusted partner for professional foot care
-      in the Kitchener-Waterloo area. We specialize in providing personalized
-      foot care services that cater to your unique needs, whether you require
-      expert nursing foot care, diabetic foot management, or relief from common
-      foot ailments.
+      Welcome to <strong>Feet On The Go</strong>, your trusted partner for
+      professional foot care in the Kitchener-Waterloo area. We specialize in
+      providing personalized foot care services that cater to your unique needs,
+      whether you require expert nursing foot care, diabetic foot management, or
+      relief from common foot ailments.
     </p>
     <p>
       With a focus on compassionate care and preventative education, we strive

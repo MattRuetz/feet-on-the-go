@@ -108,7 +108,7 @@
 
 <style>
   .hero {
-    @apply bg-sky-50 text-center py-12 sm:py-16;
+    @apply bg-sky-50 text-center;
   }
 
   .hero-text {
@@ -141,7 +141,7 @@
   }
 
   .philosophy {
-    @apply bg-sky-50 py-12 sm:py-16;
+    @apply bg-sky-50 pb-28;
   }
 
   .large-text {

@@ -1,7 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
-  import { inview } from "$lib/actions";
   import ContactForm from "$lib/components/ContactForm.svelte";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
@@ -59,6 +56,9 @@
   }
 
   .contact-link {
-    @apply flex items-center space-x-4 text-xl hover:text-sky-600 transition-colors;
+    @apply flex items-center space-x-4 text-2xl transition-colors;
+  }
+  a.contact-link:hover {
+    @apply text-sky-600;
   }
 </style>
