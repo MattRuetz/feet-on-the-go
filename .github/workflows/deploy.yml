@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/Documents/Projects/feet-on-the-go
+            cd ~/feet-on-the-go
             git pull origin main
             npm ci
             echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
