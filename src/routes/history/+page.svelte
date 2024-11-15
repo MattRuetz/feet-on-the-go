@@ -9,23 +9,23 @@
       title: "The Foundation",
       content:
         "Kelly Ferreira began her journey as a <strong>Registered Practical Nurse (RPN)</strong>, developing expertise in advanced foot care, Alzheimer's care, and wound management <strong>over a decade of dedicated service</strong>.",
-      image: "/images/nurse-caring.jpg",
+      image: "/images/nurse.jpg",
       imageAlt: "Nurse providing patient care",
     },
     {
       year: "The Inspiration",
       title: "A Need Identified",
       content:
-        "During her community care nursing years, Kelly witnessed the severe consequences of neglected foot health, including chronic ulcers and complications leading to amputations. This experience sparked the vision for Feet On The Go.",
-      image: "/images/community-care.jpg",
+        "During her community care nursing years, Kelly witnessed the severe consequences of neglected foot health, including chronic ulcers and complications leading to amputations. This experience sparked the vision for <strong>Feet On The Go</strong>.",
+      image: "/images/foot-health.jpg",
       imageAlt: "Community healthcare setting",
     },
     {
       year: "Present Day",
       title: "Feet On The Go Today",
       content:
-        "Now established in Kitchener-Waterloo, we provide professional mobile foot care services, emphasizing education and preventative care to help maintain our clients' mobility and quality of life.",
-      image: "/images/mobile-care.jpg",
+        "Now established in <strong>Kitchener-Waterloo</strong>, we provide professional mobile foot care services, emphasizing education and preventative care to help maintain our clients' mobility and quality of life.",
+      image: "/images/at-home-care.png",
       imageAlt: "Mobile foot care service",
     },
   ];
@@ -56,8 +56,8 @@
     <div class="timeline-grid">
       {#each timelineItems as item, i}
         <div class="timeline-item" use:inview transition:fade>
-          <div class="content-wrapper left">
-            <div class="year-badge w-1/5 text-center">{item.year}</div>
+          <div class="content-wrapper">
+            <div class="year-badge">{item.year}</div>
             <div class="content-box">
               <img
                 src={item.image}
@@ -65,7 +65,7 @@
                 class="timeline-image"
               />
               <h3>{item.title}</h3>
-              <p>{item.content}</p>
+              <p>{@html item.content}</p>
             </div>
           </div>
         </div>
@@ -108,54 +108,73 @@
 
 <style>
   .hero {
-    @apply bg-sky-50 text-center;
+    @apply bg-sky-50 text-center py-12 sm:py-16;
   }
 
   .hero-text {
-    @apply max-w-2xl mx-auto mt-4;
+    @apply max-w-2xl mx-auto mt-4 px-4;
   }
 
   .timeline-grid {
-    @apply space-y-12 mt-8;
+    @apply space-y-8 sm:space-y-12 mt-8;
   }
 
   .timeline-item {
-    @apply relative pb-12;
+    @apply relative pb-8 sm:pb-12;
   }
 
   .content-wrapper {
-    @apply flex gap-8 items-center;
+    @apply flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center;
   }
 
   .year-badge {
-    @apply bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-semibold;
+    @apply bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-semibold 
+           text-sm sm:text-base w-auto sm:w-1/5 text-center;
   }
 
   .content-box {
-    @apply bg-white p-6 rounded-lg shadow border-2 border-sky-100 flex-1;
+    @apply bg-white p-4 sm:p-6 rounded-lg shadow border-2 border-sky-100 flex-1;
   }
 
   .timeline-image {
-    @apply w-full h-48 object-cover rounded-lg mb-4;
+    @apply w-full h-32 sm:h-80 object-cover rounded-lg mb-4;
   }
 
   .philosophy {
-    @apply bg-sky-50 py-16;
+    @apply bg-sky-50 py-12 sm:py-16;
   }
 
   .large-text {
-    @apply text-2xl text-center mb-12 max-w-2xl mx-auto;
+    @apply text-xl sm:text-2xl text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-4;
   }
 
   .commitment-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto px-4;
   }
 
   .commitment-item {
-    @apply bg-white p-6 rounded-lg shadow-md;
+    @apply bg-white p-4 sm:p-6 rounded-lg shadow-md;
   }
 
   .commitment-item h3 {
-    @apply text-xl font-semibold mb-2 text-sky-800;
+    @apply text-lg sm:text-xl font-semibold mb-2 text-sky-800;
+  }
+
+  .commitment-item p {
+    @apply text-sm sm:text-base;
+  }
+
+  @media (max-width: 640px) {
+    .content-wrapper {
+      @apply px-4;
+    }
+
+    .year-badge {
+      @apply mb-2;
+    }
+
+    .timeline-image {
+      @apply h-48;
+    }
   }
 </style>

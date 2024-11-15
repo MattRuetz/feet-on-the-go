@@ -15,7 +15,6 @@
       details: [
         "<strong>Home Visits:</strong> Enjoy professional foot care in the comfort of your own home.",
         "<strong>Retirement Home Services:</strong> We provide on-site care for seniors in residential facilities.",
-        "<strong>Clinic Appointments:</strong> Visit us at Elite Training Facility for in-clinic treatments.",
       ],
     },
     {
@@ -64,7 +63,7 @@
     "<strong>Registered Practical Nurses:</strong> All our foot care specialists are certified RPNs.",
     "<strong>Sterile Equipment:</strong> We use hospital-grade sterilization techniques for your safety.",
     "<strong>We Come to You:</strong> Serving Kitchener, Waterloo, Cambridge, and Woodstock areas.",
-    "<strong>Flexible Scheduling:</strong> We offer both in-home and clinic-based appointments.",
+    "<strong>Flexible Scheduling:</strong> We offer in-home appointments at your convenience.",
   ];
 </script>
 

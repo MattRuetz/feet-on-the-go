@@ -54,7 +54,7 @@
     <div class="minimal-divider"></div>
     <p class="hero-text">
       Proper foot care is an integral part of leading a healthy, happy
-      lifestyle. Learn how to maintain healthy feet with our professional
+      lifestyle. <strong>Learn how to maintain healthy feet</strong> with our professional
       guidance.
     </p>
   </div>
@@ -140,7 +140,7 @@
   }
 
   .care-card {
-    @apply bg-white rounded-lg shadow-sm p-8 mb-12 border border-gray-100;
+    @apply bg-white rounded-lg shadow p-8 mb-12 border-2 border-sky-100;
   }
 
   .check-list {

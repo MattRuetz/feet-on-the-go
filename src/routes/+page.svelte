@@ -59,6 +59,14 @@
         class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
         transition:fade={{ duration: 800 }}
       >
+        <div class="logo-container">
+          <img
+            src="/images/temp_logo.png"
+            alt="Feet on the Go Logo"
+            class="w-48 sm:w-64 md:w-80 h-auto"
+            transition:fade={{ duration: 600 }}
+          />
+        </div>
         <h1 class="text-3xl sm:text-5xl text-gray-800">
           Professional Foot Care in Your Home
         </h1>
@@ -93,7 +101,7 @@
   </div>
   <div class="absolute inset-0">
     <div
-      class="absolute inset-0 bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
+      class="absolute inset-0 bg-white/85 sm:bg-white/20 md:bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
     ></div>
     <img
       src="/images/foot-massage2.jpg"
@@ -158,7 +166,7 @@
     class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
   >
     <div
-      class="col-span-1 h-[300px] lg:h-auto img-container"
+      class="col-span-1 h-[300px] md:h-[600px] lg:h-auto img-container"
       class:visible={imageVisibility[0]}
       use:inview={{
         threshold: 0.3,
@@ -187,8 +195,9 @@
           area.
         </p>
       </div>
-      <div class="pt-4">
+      <div class="pt-4 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <a href="/contact" class="cta-button">Book an Appointment</a>
+        <a href="/nursing-foot-care" class="outline-btn">Learn More</a>
       </div>
     </div>
   </div>
@@ -221,7 +230,7 @@
       </div>
     </div>
     <div
-      class="col-span-1 h-[600px] order-1 lg:order-2 img-container"
+      class="col-span-1 h-[300px] md:h-[600px] order-1 lg:order-2 img-container"
       class:visible={imageVisibility[1]}
       use:inview={{
         threshold: 0.3,
@@ -251,7 +260,7 @@
 
 <style>
   .hero {
-    @apply bg-gray-50 text-left -mt-8 h-[700px] max-h-[calc(100vh-64px)] overflow-hidden;
+    @apply bg-gray-50 text-left -mt-8 h-[800px] max-h-[calc(100vh-64px)] overflow-hidden;
   }
 
   .welcome {
@@ -299,6 +308,10 @@
     @apply bg-sky-50;
   }
 
+  .logo-container {
+    @apply -ml-2 sm:ml-0 w-full;
+  }
+
   @media (max-width: 640px) {
     section {
       @apply py-12;
@@ -322,6 +335,10 @@
 
     .hero {
       @apply -mt-8 min-h-[600px];
+    }
+
+    .logo-container {
+      @apply w-4/5 max-w-[240px];
     }
   }
 </style>

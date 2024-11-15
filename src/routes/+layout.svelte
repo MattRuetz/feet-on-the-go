@@ -24,16 +24,15 @@
 
 <header class="sticky top-0 bg-white z-50">
   <div class="narrow-container">
-    <div class="flex items-center justify-between h-16">
-      <a href="/" class="hover:scale-105 transition-transform">
+    <div class="flex items-center justify-end md:justify-center h-20">
+      <!-- <a href="/" class="hover:scale-105 transition-transform">
         <img
-          src="/images/wordmark.svg"
+          src="/images/footprint-logo.png"
           alt="Feet on the Go"
-          class="w-24 h-12"
+          class="h-12"
         />
-      </a>
+      </a> -->
 
-      <!-- Add hamburger button -->
       <button
         class="md:hidden p-2"
         onclick={toggleMobileMenu}
@@ -46,24 +45,32 @@
         {/if}
       </button>
 
-      <!-- Update nav with mobile menu state -->
       <nav class:open={isMobileMenuOpen}>
-        <a href="/" class:active={$page.url.pathname === "/"}>Home</a>
-        <a href="/services" class:active={$page.url.pathname === "/services"}
-          >Services</a
+        <a
+          href="/"
+          class:active={$page.url.pathname === "/"}
+          onclick={() => (isMobileMenuOpen = false)}>Home</a
+        >
+        <a
+          href="/services"
+          class:active={$page.url.pathname === "/services"}
+          onclick={() => (isMobileMenuOpen = false)}>Services</a
         >
         <a
           href="/nursing-foot-care"
           class:active={$page.url.pathname === "/nursing-foot-care"}
-          >Nursing Foot Care</a
+          onclick={() => (isMobileMenuOpen = false)}>Nursing Foot Care</a
         >
-        <a href="/history" class:active={$page.url.pathname === "/history"}
-          >History</a
+        <a
+          href="/history"
+          class:active={$page.url.pathname === "/history"}
+          onclick={() => (isMobileMenuOpen = false)}>History</a
         >
         <a
           class="contact-button"
           href="/contact"
-          class:active={$page.url.pathname === "/contact"}>Contact Us</a
+          class:active={$page.url.pathname === "/contact"}
+          onclick={() => (isMobileMenuOpen = false)}>Contact Us</a
         >
       </nav>
     </div>
@@ -78,11 +85,7 @@
   <div class="footer-content">
     <div class="footer-brand">
       <a href="/" class="footer-logo">
-        <img
-          src="/images/wordmark.svg"
-          alt="Feet on the Go"
-          class="w-48 h-24"
-        />
+        <img src="/images/temp_logo.png" alt="Feet on the Go" class="w-64" />
       </a>
       <p class="footer-tagline">
         Professional Foot Care Services in Kitchener-Waterloo
@@ -130,15 +133,19 @@
 
 <style>
   header {
-    @apply bg-gray-50 shadow-sm;
+    @apply bg-gray-50 shadow border-b;
   }
 
   nav {
     @apply flex items-center space-x-6;
   }
 
+  header nav a {
+    @apply text-xl;
+  }
+
   nav a {
-    @apply text-gray-800 no-underline text-base font-medium px-3 py-2 rounded-md 
+    @apply text-gray-800 no-underline font-medium px-3 py-2 rounded-md 
 		transition-colors hover:bg-gray-200 whitespace-nowrap border border-transparent;
   }
 
@@ -227,7 +234,7 @@
   @media (max-width: 768px) {
     header nav {
       @apply fixed top-16 px-8 left-0 right-0 flex-col items-center space-x-0 space-y-2 
-        bg-gray-50 py-4 shadow-md translate-x-full transition-transform;
+        bg-gray-50 py-4 shadow-md translate-x-full transition-transform border-t border-gray-400;
     }
 
     /* Show menu when open */
