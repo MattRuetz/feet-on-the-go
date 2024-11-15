@@ -69,7 +69,7 @@
   {/if}
 
   <div>
-    <label for="name" class="block text-sm font-medium text-gray-700"
+    <label for="name" class="block text-lg font-medium text-gray-900"
       >Name</label
     >
     <input
@@ -78,12 +78,12 @@
       name="name"
       autocomplete="name"
       bind:value={formData.name}
-      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
     />
   </div>
 
   <div>
-    <label for="email" class="block text-sm font-medium text-gray-700"
+    <label for="email" class="block text-lg font-medium text-gray-900"
       >Email</label
     >
     <input
@@ -92,12 +92,12 @@
       name="email"
       autocomplete="email"
       bind:value={formData.email}
-      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
     />
   </div>
 
   <div>
-    <label for="message" class="block text-sm font-medium text-gray-700"
+    <label for="message" class="block text-lg font-medium text-gray-900"
       >Message</label
     >
     <textarea
@@ -105,13 +105,13 @@
       name="message"
       rows="4"
       bind:value={formData.message}
-      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
     ></textarea>
   </div>
 
   <button
     type="submit"
-    class="inline-flex justify-center items-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    class="inline-flex justify-center items-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
     disabled={formData.isLoading}
   >
     {#if formData.isLoading}
