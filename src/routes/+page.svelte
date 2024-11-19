@@ -7,25 +7,33 @@
   // custom actions
   import { inview } from "$lib/actions";
   import ReviewSection from "$lib/components/ReviewSection.svelte";
+  import CTASection from "$lib/components/CTASection.svelte";
+  import tempLogo from "$lib/images/temp_logo.png?enhanced";
+  import elderlyCouple from "$lib/images/elderly-couple.jpg?enhanced";
+  import footCare from "$lib/images/foot-care.jpg?enhanced";
+  import happyPatient from "$lib/images/happy-patient.png?enhanced";
+  import diabetes from "$lib/images/diabetes.jpg?enhanced";
+  import footMassage2 from "$lib/images/foot-massage2.jpg?enhanced";
+  import footMassage from "$lib/images/foot-massage.jpg?enhanced";
 
   const services = [
     {
       title: "Foot Care",
       anchor: "foot-care",
       description: "Professional foot care services",
-      image: "/images/foot-care.jpg",
+      image: footCare,
     },
     {
       title: "Home Visits",
       anchor: "home-visits",
       description: "Convenient care in your home",
-      image: "/images/happy-patient.png",
+      image: happyPatient,
     },
     {
       title: "Diabetic Foot Care",
       anchor: "diabetic-care",
       description: "Specialized diabetic foot care",
-      image: "/images/diabetes.jpg",
+      image: diabetes,
     },
   ];
 
@@ -59,12 +67,12 @@
         class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
         transition:fade={{ duration: 800 }}
       >
-        <div class="logo-container">
-          <img
-            src="/images/temp_logo.png"
+        <div class="logo-container" transition:fade={{ duration: 600 }}>
+          <enhanced:img
+            src={tempLogo}
             alt="Feet on the Go Logo"
             class="w-48 sm:w-64 md:w-80 h-auto"
-            transition:fade={{ duration: 600 }}
+            sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
           />
         </div>
         <h1 class="text-3xl sm:text-5xl text-gray-800">
@@ -103,10 +111,11 @@
     <div
       class="absolute inset-0 bg-white/85 sm:bg-white/20 md:bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
     ></div>
-    <img
-      src="/images/foot-massage2.jpg"
+    <enhanced:img
+      src={footMassage2}
       alt="Professional Foot Care"
       class="w-full h-full object-cover"
+      sizes="100vw"
     />
   </div>
 </section>
@@ -142,10 +151,11 @@
         }}
       >
         <div in:fade={{ duration: 600, delay: i * 200 }} class="space-y-4">
-          <img
+          <enhanced:img
             src={service.image}
             alt={service.title}
             class="w-full h-42 object-cover rounded-lg"
+            sizes="(max-width: 640px) 640px, 1280px"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
@@ -169,12 +179,13 @@
         threshold: 0.3,
         onenter: () => (imageVisibility[0] = true),
       }}
+      in:fade={{ duration: 600 }}
     >
-      <img
-        src="/images/elderly-couple.jpg"
+      <enhanced:img
+        src={elderlyCouple}
         alt="Nursing Foot Care"
         class="w-full h-full object-cover rounded-lg shadow"
-        in:fade={{ duration: 600 }}
+        sizes="(max-width: 640px) 640px, 1280px"
       />
     </div>
     <div class="col-span-1 space-y-6 py-4 lg:py-8">
@@ -233,12 +244,13 @@
         threshold: 0.3,
         onenter: () => (imageVisibility[1] = true),
       }}
+      in:fade={{ duration: 600 }}
     >
-      <img
-        src="/images/foot-massage.jpg"
+      <enhanced:img
+        src={footMassage}
         alt="Foot Massage"
         class="w-full h-full object-cover rounded-lg shadow"
-        in:fade={{ duration: 600 }}
+        sizes="(max-width: 640px) 640px, 1280px"
       />
     </div>
   </div>
@@ -246,14 +258,7 @@
 
 <ReviewSection />
 
-<section class="cta">
-  <div class="cta-background-overlay"></div>
-  <div class="cta-content space-y-8 narrow-container">
-    <h2>Ready to Schedule Your Appointment?</h2>
-    <p>We're here to help with all your foot care needs</p>
-    <a href="/contact" class="cta-button">Contact Us Today</a>
-  </div>
-</section>
+<CTASection />
 
 <style>
   .hero {
@@ -275,21 +280,6 @@
   .service-card.visible,
   .img-container.visible {
     @apply opacity-100 translate-y-0;
-  }
-
-  .cta {
-    @apply relative;
-    background: url("/images/elderly-couple2.jpg") no-repeat center center;
-    background-size: cover;
-    background-position: bottom;
-  }
-
-  .cta-background-overlay {
-    @apply absolute inset-0 bg-black/30 z-10;
-  }
-
-  .cta-content {
-    @apply text-center bg-white shadow-lg rounded-xl py-8 sm:py-16 px-4 relative z-20;
   }
 
   .info-section-1 {

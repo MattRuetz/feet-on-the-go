@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition";
   import { inview } from "$lib/actions";
   import CTASection from "$lib/components/CTASection.svelte";
+  import nurse from "$lib/images/nurse.jpg?enhanced";
 </script>
 
 <svelte:head>
@@ -26,10 +27,11 @@
 <section class="about">
   <div class="narrow-container">
     <div class="about-content" use:inview in:fade>
-      <img
-        src="/images/nurse.jpg"
+      <enhanced:img
+        src={nurse}
         alt="Kelly Ferreira, RPN"
         class="about-image"
+        sizes="(max-width: 640px) 640px, 1280px"
       />
       <div class="content-box">
         <h2>My Story</h2>
@@ -99,15 +101,15 @@
   }
 
   .about-content {
-    @apply flex flex-col lg:flex-row gap-8 items-start;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8; /* Changed to 2 columns for better responsiveness */
   }
 
   .about-image {
-    @apply w-full lg:w-1/3 h-[300px] lg:h-[500px] object-cover rounded-lg shadow-lg;
+    @apply col-span-1 h-[300px] lg:h-[500px] object-cover rounded-lg shadow-lg; /* Adjusted to span 1 column */
   }
 
   .content-box {
-    @apply flex-1 space-y-6 bg-white p-8 rounded-lg shadow-lg border-2 border-sky-100;
+    @apply col-span-2 space-y-6 bg-white p-8 rounded-lg shadow-lg border-2 border-sky-100; /* Adjusted to span 1 column */
   }
 
   .mission-statement {

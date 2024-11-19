@@ -8,6 +8,7 @@
     faPhone,
     faLocationDot,
   } from "@fortawesome/free-solid-svg-icons";
+  import tempLogo from "$lib/images/temp_logo.png?enhanced";
 
   //   library.add(faBars, faXmark);
 
@@ -27,14 +28,6 @@
     <div
       class="flex items-center justify-between md:justify-center h-16 md:h-20"
     >
-      <!-- <a href="/" class="hover:scale-105 transition-transform">
-        <img
-          src="/images/footprint-logo.png"
-          alt="Feet on the Go"
-          class="h-12"
-        />
-      </a> -->
-
       <a href="tel:+15196546363" class="md:hidden mobile-cta-button"
         ><FontAwesomeIcon icon={faPhone} /> Call Now</a
       >
@@ -89,8 +82,13 @@
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
-      <a href="/" class="footer-logo">
-        <img src="/images/temp_logo.png" alt="Feet on the Go" class="w-64" />
+      <a href="/" class="footer-logo" aria-label="Feet on the Go Logo">
+        <enhanced:img
+          src={tempLogo}
+          alt="Feet on the Go"
+          sizes="64px"
+          class="w-64"
+        />
       </a>
       <p class="footer-tagline">
         Professional Foot Care Services in Kitchener-Waterloo

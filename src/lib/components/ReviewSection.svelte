@@ -18,19 +18,6 @@
     mounted = true;
   });
 
-  //   function formatDate(dateString) {
-  //     const date = new Date(dateString);
-  //     const now = new Date();
-  //     const diffTime = Math.abs(now - date);
-  //     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  //     if (diffDays === 1) return "yesterday";
-  //     if (diffDays < 7) return `${diffDays} days ago`;
-  //     if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-  //     if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
-  //     return date.toLocaleDateString();
-  //   }
-
   function handleInView(i) {
     console.log(`Review ${i} is in view`);
     reviewVisibility[i] = true;
@@ -66,9 +53,6 @@
               </div>
               <div class="review-meta">
                 <p class="reviewer-name">- {review.name}</p>
-                <!-- <p class="review-date">
-                  {formatDate(review.date)}
-                  </p> -->
               </div>
             </div>
           </div>
@@ -105,9 +89,5 @@
 
   .reviewer-name {
     @apply font-semibold text-lg text-sky-800;
-  }
-
-  .review-date {
-    @apply text-sm text-gray-600 mt-1;
   }
 </style>

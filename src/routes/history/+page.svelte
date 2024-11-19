@@ -3,13 +3,14 @@
   import { fade } from "svelte/transition";
   import { inview } from "$lib/actions";
   import CTASection from "$lib/components/CTASection.svelte";
+  import OptimizedImage from "../../lib/components/OptimizedImage.svelte";
   const timelineItems = [
     {
       year: "Early Career",
       title: "The Foundation",
       content:
         "Kelly Ferreira began her journey as a <strong>Registered Practical Nurse (RPN)</strong>, developing expertise in advanced foot care, Alzheimer's care, and wound management <strong>over a decade of dedicated service</strong>.",
-      image: "/images/nurse.jpg",
+      image: "/static/images/nurse.jpg",
       imageAlt: "Nurse providing patient care",
     },
     {
@@ -17,7 +18,7 @@
       title: "A Need Identified",
       content:
         "During her community care nursing years, Kelly witnessed the severe consequences of neglected foot health, including chronic ulcers and complications leading to amputations. This experience sparked the vision for <strong>Feet On The Go</strong>.",
-      image: "/images/foot-health.jpg",
+      image: "/static/images/foot-health.jpg",
       imageAlt: "Community healthcare setting",
     },
     {
@@ -25,7 +26,7 @@
       title: "Feet On The Go Today",
       content:
         "Now established in <strong>Kitchener-Waterloo</strong>, we provide professional mobile foot care services, emphasizing education and preventative care to help maintain our clients' mobility and quality of life.",
-      image: "/images/at-home-care.png",
+      image: "/static/images/at-home-care.png",
       imageAlt: "Mobile foot care service",
     },
   ];
@@ -59,10 +60,11 @@
           <div class="content-wrapper">
             <div class="year-badge">{item.year}</div>
             <div class="content-box">
-              <img
+              <enhanced:img
                 src={item.image}
                 alt={item.imageAlt}
                 class="timeline-image"
+                sizes="(max-width: 640px) 640px, 1280px"
               />
               <h3>{item.title}</h3>
               <p>{@html item.content}</p>

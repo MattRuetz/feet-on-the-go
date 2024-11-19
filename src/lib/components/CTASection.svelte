@@ -5,10 +5,20 @@
     faClock,
   } from "@fortawesome/free-solid-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import elderlyCouple2 from "$lib/images/elderly-couple2.jpg?enhanced";
 </script>
 
-<section class="cta-section">
-  <div class="narrow-container text-center bg-white p-16 rounded-lg shadow-lg">
+<section class="cta">
+  <div class="cta-background">
+    <enhanced:img
+      src={elderlyCouple2}
+      alt=""
+      class="background-image"
+      sizes="100vw"
+    />
+  </div>
+  <div class="cta-background-overlay"></div>
+  <div class="cta-content space-y-8 narrow-container">
     <h2>Book Your Foot Care Appointment Today</h2>
     <div class="minimal-divider"></div>
     <p class="cta-text mt-4">
@@ -38,12 +48,23 @@
     @apply text-sky-600 hover:text-sky-700;
   }
 
-  .cta-section {
-    background-image: url("/images/elderly-couple2.jpg");
-    @apply bg-cover bg-left-bottom bg-no-repeat;
+  .cta {
+    @apply relative;
   }
 
-  .cta-text {
-    @apply text-xl text-gray-600 max-w-2xl mx-auto mb-8;
+  .cta-background {
+    @apply absolute inset-0 overflow-hidden -z-10;
+  }
+
+  .background-image {
+    @apply w-full h-full object-cover object-bottom;
+  }
+
+  .cta-background-overlay {
+    @apply absolute inset-0 bg-black/20 z-10;
+  }
+
+  .cta-content {
+    @apply relative z-20 text-center bg-white p-16 rounded-lg;
   }
 </style>
