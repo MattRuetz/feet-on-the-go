@@ -71,7 +71,7 @@
           <enhanced:img
             src={tempLogo}
             alt="Feet on the Go Logo"
-            class="w-48 sm:w-64 md:w-80 h-auto"
+            class="w-48 sm:w-64 md:w-auto"
             sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
           />
         </div>
@@ -109,7 +109,7 @@
   </div>
   <div class="absolute inset-0">
     <div
-      class="absolute inset-0 bg-white/85 sm:bg-white/20 md:bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
+      class="absolute inset-0 bg-white/85 sm:bg-white/20 sm:bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
     ></div>
     <enhanced:img
       src={footMassage2}
@@ -146,7 +146,7 @@
         class="service-card"
         class:visible={serviceVisibility[i]}
         use:inview={{
-          threshold: 0.9,
+          threshold: 0.3,
           onenter: () => setTimeout(() => handleInView(i), i * 200),
         }}
       >

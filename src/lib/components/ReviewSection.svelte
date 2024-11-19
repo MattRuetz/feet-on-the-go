@@ -35,7 +35,7 @@
           <div
             class="grid-item"
             use:inview={{
-              threshold: 0.9,
+              threshold: 0.3,
               onenter: () => setTimeout(() => handleInView(i), i * 200),
             }}
           >

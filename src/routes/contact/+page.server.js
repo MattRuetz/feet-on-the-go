@@ -1,8 +1,17 @@
 import { fail } from "@sveltejs/kit";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { env } from "$env/dynamic/private";
 
-const resend = new Resend(env.RESEND_API_KEY);
+// Create reusable transporter
+const transporter = nodemailer.createTransport({
+  host: env.SMTP_HOST, // e.g., "smtp.gmail.com"
+  port: env.SMTP_PORT, // e.g., 587
+  secure: env.SMTP_SECURE === "true", // true for 465, false for other ports
+  auth: {
+    user: env.SMTP_USER, // email address
+    pass: env.SMTP_PASSWORD, // email password or app-specific password
+  },
+});
 
 export const actions = {
   default: async ({ request }) => {
@@ -40,10 +49,11 @@ export const actions = {
         .replace(/[<>]/g, "");
       const sanitizedMessage = message.toString().trim().replace(/[<>]/g, "");
 
-      const { data: emailResult, error } = await resend.emails.send({
-        from: "Feet on the Go <onboarding@resend.dev>",
-        to: ["matt.b.ruetz@gmail.com"],
-        reply_to: sanitizedEmail,
+      // Send email using nodemailer instead of Resend
+      const info = await transporter.sendMail({
+        from: `"Feet on the Go Website" <${env.SMTP_USER}>`,
+        to: env.RECIPIENT_EMAIL,
+        replyTo: sanitizedEmail,
         subject: `New Contact Form Message from ${sanitizedName}`,
         html: `
           <h2>New Contact Form Submission</h2>
@@ -54,8 +64,8 @@ export const actions = {
         `,
       });
 
-      if (error) {
-        console.error("Resend error:", error);
+      if (!info.messageId) {
+        console.error("Email sending failed:", info);
         return fail(500, {
           errors: { submit: "Failed to send message. Please try again." },
         });

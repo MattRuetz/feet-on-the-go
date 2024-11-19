@@ -86,8 +86,8 @@
         <enhanced:img
           src={tempLogo}
           alt="Feet on the Go"
-          sizes="64px"
-          class="w-64"
+          sizes="(max-width: 640px) 64px, 256px"
+          class="w-64 lg:w-auto"
         />
       </a>
       <p class="footer-tagline">
@@ -100,8 +100,8 @@
       <nav class="">
         <a href="/">Home</a>
         <a href="/services">Services</a>
+        <a href="/about">About</a>
         <a href="/nursing-foot-care">Nursing Foot Care</a>
-        <a href="/history">History</a>
         <a href="/contact">Contact</a>
       </nav>
     </div>
