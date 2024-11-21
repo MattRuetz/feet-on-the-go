@@ -213,7 +213,7 @@
       </div>
       <div class="pt-4 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <a href="/contact" class="cta-button">Book an Appointment</a>
-        <a href="/nursing-foot-care" class="outline-btn">Learn More</a>
+        <a href="/nursing-foot-care" class="outline-btn">Foot Care Guide</a>
       </div>
     </div>
   </div>
