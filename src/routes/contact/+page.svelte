@@ -8,7 +8,7 @@
   <title>Contact Us - Feet on the Go</title>
   <meta
     name="description"
-    content="Contact Feet on the Go for professional mobile foot care services in Kitchener-Waterloo. Book an appointment today."
+    content="Contact Feet on the Go for professional mobile foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr. Book an appointment today."
   />
 </svelte:head>
 

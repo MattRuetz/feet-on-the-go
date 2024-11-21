@@ -62,7 +62,7 @@
   let whyChooseUs = [
     "<strong>Registered Practical Nurses:</strong> All our foot care specialists are certified RPNs.",
     "<strong>Sterile Equipment:</strong> We use hospital-grade sterilization techniques for your safety.",
-    "<strong>We Come to You:</strong> Serving Kitchener, Waterloo, Cambridge, and Woodstock areas.",
+    "<strong>We Come to You:</strong> Serving Kitchener, Waterloo, Cambridge, Woodstock, and Ayr.",
     "<strong>Flexible Scheduling:</strong> We offer in-home appointments at your convenience.",
   ];
 </script>
@@ -71,7 +71,7 @@
   <title>Our Services - Feet on the Go</title>
   <meta
     name="description"
-    content="Explore our comprehensive foot care services including diabetic care and home visits in Kitchener-Waterloo."
+    content="Explore our comprehensive foot care services including diabetic care and home visits in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr."
   />
 </svelte:head>
 

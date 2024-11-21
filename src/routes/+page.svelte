@@ -56,7 +56,7 @@
   <title>Feet on the Go - Professional Mobile Foot Care Services</title>
   <meta
     name="description"
-    content="Professional mobile foot care services in Kitchener-Waterloo. Specializing in senior care, diabetic foot care, and home visits."
+    content="Professional mobile foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr. Specializing in senior care, diabetic foot care, and home visits."
   />
 </svelte:head>
 
@@ -79,7 +79,8 @@
           Professional Foot Care in Your Home
         </h1>
         <p class="tagline text-lg sm:text-xl">
-          Bringing comfort and care directly to you in Kitchener-Waterloo
+          Bringing comfort and care directly to you in Kitchener, Waterloo,
+          Cambridge, Woodstock, and Ayr
         </p>
         <div class="space-y-4">
           <a
@@ -126,10 +127,10 @@
     <div class="minimal-divider"></div>
     <p>
       Welcome to <strong>Feet On The Go</strong>, your trusted partner for
-      professional foot care in the Kitchener-Waterloo area. We specialize in
-      providing personalized foot care services that cater to your unique needs,
-      whether you require expert nursing foot care, diabetic foot management, or
-      relief from common foot ailments.
+      professional foot care in Kitchener, Waterloo, Cambridge, Woodstock, and
+      Ayr. We specialize in providing personalized foot care services that cater
+      to your unique needs, whether you require expert nursing foot care,
+      diabetic foot management, or relief from common foot ailments.
     </p>
     <p>
       With a focus on compassionate care and preventative education, we strive
@@ -199,8 +200,8 @@
           Whether you're managing a chronic condition or simply want to maintain
           healthy feet, our professional nursing foot care services offer the
           perfect blend of medical knowledge and compassionate care, all in the
-          comfort of your own home or care facility in the Kitchener-Waterloo
-          area.
+          comfort of your own home or care facility in Kitchener, Waterloo,
+          Cambridge, Woodstock, and Ayr.
         </p>
       </div>
       <div class="pt-4 flex flex-col sm:flex-row gap-4 sm:gap-8">

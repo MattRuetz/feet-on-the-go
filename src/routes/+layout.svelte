@@ -91,7 +91,8 @@
         />
       </a>
       <p class="footer-tagline">
-        Professional Foot Care Services in Kitchener-Waterloo
+        Professional Foot Care Services in Kitchener, Waterloo, Cambridge,
+        Woodstock, and Ayr
       </p>
     </div>
 

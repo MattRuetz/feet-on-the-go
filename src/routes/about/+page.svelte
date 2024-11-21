@@ -9,7 +9,7 @@
   <title>About - Feet on the Go</title>
   <meta
     name="description"
-    content="Meet Kelly Ferreira, RPN and owner of Feet on the Go. Providing professional nursing foot care services in Kitchener-Waterloo with over 10 years of experience."
+    content="Meet Kelly Ferreira, RPN and owner of Feet on the Go. Providing professional nursing foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr with over 10 years of experience."
   />
 </svelte:head>
 
