@@ -160,8 +160,8 @@
             alt={service.title}
             class="w-full h-42 object-cover rounded-lg"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            width="1280"
-            height="800"
+            width="640"
+            height="400"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
