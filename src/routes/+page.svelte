@@ -72,6 +72,8 @@
             alt="Feet on the Go Logo"
             class="w-48 sm:w-64 md:w-auto"
             sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
+            width="320"
+            height="80"
           />
         </div>
         <h1 class="text-3xl sm:text-5xl text-gray-800">
@@ -116,6 +118,8 @@
       alt="Professional Foot Care"
       class="w-full h-full object-cover"
       sizes="100vw"
+      width="1280"
+      height="800"
     />
   </div>
 </section>
@@ -155,7 +159,9 @@
             src={service.image}
             alt={service.title}
             class="w-full h-42 object-cover rounded-lg"
-            sizes="(max-width: 640px) 640px, 1280px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width="1280"
+            height="800"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
@@ -186,6 +192,8 @@
         alt="Nursing Foot Care"
         class="w-full h-full object-cover rounded-lg shadow"
         sizes="(max-width: 640px) 640px, 1280px"
+        width="1280"
+        height="800"
       />
     </div>
     <div class="col-span-1 space-y-6 py-4 lg:py-8">
