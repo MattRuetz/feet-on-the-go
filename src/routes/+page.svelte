@@ -159,9 +159,9 @@
             src={service.image}
             alt={service.title}
             class="h-42 object-cover rounded-lg"
-            sizes="(max-width: 640px) 100vw"
-            width="640"
-            height="400"
+            sizes="(max-width: 320px) 100vw"
+            width="320"
+            height="200"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
