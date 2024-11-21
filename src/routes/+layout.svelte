@@ -102,7 +102,7 @@
     </div>
 
     <div class="footer-links">
-      <h4>Quick Links</h4>
+      <p class="footer-heading text-center">Quick Links</p>
       <nav class="">
         <a href="/">Home</a>
         <a href="/services">Services</a>
@@ -114,7 +114,7 @@
     </div>
 
     <div class="footer-contact">
-      <h4>Contact Info</h4>
+      <p class="footer-heading">Contact Info</p>
       <div class="contact-details">
         <a href="tel:+15196546363" class="flex items-center space-x-2">
           <FontAwesomeIcon icon={faPhone} />
@@ -195,8 +195,8 @@
     @apply space-y-4;
   }
 
-  .footer-links h4 {
-    @apply text-xl font-medium mb-4 text-center;
+  .footer-heading {
+    @apply text-xl font-medium mb-4;
   }
 
   .footer-links nav {
@@ -238,7 +238,7 @@
   }
 
   .footer-bottom a {
-    @apply text-sky-700 hover:text-sky-800 transition-colors;
+    @apply text-sky-800 hover:text-sky-900 transition-colors font-bold;
   }
 
   @media (max-width: 768px) {

@@ -166,7 +166,7 @@
           <h3>{service.title}</h3>
           <p>{service.description}</p>
           <a href={`/services#${service.anchor}`} class="outline-btn mt-8"
-            >Learn More</a
+            >Learn About {service.title}</a
           >
         </div>
       </div>
