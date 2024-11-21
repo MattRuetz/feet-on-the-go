@@ -211,10 +211,6 @@
     @apply space-y-4;
   }
 
-  .footer-contact h4 {
-    @apply text-xl font-medium mb-4;
-  }
-
   .contact-details {
     @apply space-y-3;
   }
