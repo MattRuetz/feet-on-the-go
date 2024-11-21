@@ -86,14 +86,14 @@
         <div class="space-y-4">
           <a
             href="tel:+15196546363"
-            class="flex items-center space-x-4 text-xl hover:text-sky-600 transition-colors"
+            class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
           >
             <FontAwesomeIcon icon={faPhone} class="fa-lg" />
             <span>519-654-6363</span>
           </a>
           <a
             href="/contact#location"
-            class="flex items-center space-x-4 text-xl hover:text-sky-600 transition-colors"
+            class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
           >
             <FontAwesomeIcon icon={faLocationDot} class="fa-lg" />
             <span>Kitchener-Waterloo, Ontario</span>

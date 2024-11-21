@@ -44,7 +44,7 @@
       <ul class="check-list">
         {#each dailyChecks as check}
           <li>
-            <FontAwesomeIcon icon={faCheck} class="text-sky-600" />
+            <FontAwesomeIcon icon={faCheck} class="text-sky-700" />
             <span>{check}</span>
           </li>
         {/each}

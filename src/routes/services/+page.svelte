@@ -144,7 +144,7 @@
 
   .benefits-list li:before {
     content: "✓";
-    @apply text-sky-600 mr-2 font-bold text-3xl;
+    @apply text-sky-700 mr-2 font-bold text-3xl;
   }
 
   .why-choose-us {

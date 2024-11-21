@@ -160,15 +160,15 @@
   }
 
   nav a.active {
-    @apply border border-sky-600 text-sky-600 rounded-md;
+    @apply border border-sky-700 text-sky-700 rounded-md;
   }
 
   .contact-button {
-    @apply bg-sky-600 text-white hover:bg-sky-700;
+    @apply bg-sky-700 text-white hover:bg-sky-800;
   }
 
   .contact-button.active {
-    @apply bg-white text-sky-600;
+    @apply bg-white text-sky-700;
   }
 
   main {
@@ -204,7 +204,7 @@
   }
 
   .footer-links a {
-    @apply text-gray-600 hover:text-sky-600 transition-colors;
+    @apply text-gray-600 hover:text-sky-700 transition-colors;
   }
 
   .footer-contact {
@@ -220,12 +220,12 @@
   }
 
   .contact-details a {
-    @apply text-gray-600 hover:text-sky-600 transition-colors;
+    @apply text-gray-600 hover:text-sky-700 transition-colors;
   }
 
   .footer-cta {
-    @apply inline-block mt-4 px-6 py-2 bg-sky-600 text-white rounded-md 
-    hover:bg-sky-700 transition-colors;
+    @apply inline-block mt-4 px-6 py-2 bg-sky-700 text-white rounded-md 
+    hover:bg-sky-800 transition-colors;
   }
 
   .footer-bottom {
@@ -238,7 +238,7 @@
   }
 
   .footer-bottom a {
-    @apply text-sky-600 hover:text-sky-700 transition-colors;
+    @apply text-sky-700 hover:text-sky-800 transition-colors;
   }
 
   @media (max-width: 768px) {
@@ -276,7 +276,7 @@
     }
 
     .footer-contact a.footer-cta {
-      @apply bg-sky-600 text-white w-full;
+      @apply bg-sky-700 text-white w-full;
     }
   }
 </style>

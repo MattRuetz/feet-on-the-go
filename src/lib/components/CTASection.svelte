@@ -45,7 +45,7 @@
   }
 
   .phone a {
-    @apply text-sky-600 hover:text-sky-700;
+    @apply text-sky-700 hover:text-sky-800;
   }
 
   .cta {

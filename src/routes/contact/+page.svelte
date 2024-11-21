@@ -66,6 +66,6 @@
     @apply bg-gray-100;
   }
   a.contact-link:hover {
-    @apply text-sky-600;
+    @apply text-sky-700;
   }
 </style>
