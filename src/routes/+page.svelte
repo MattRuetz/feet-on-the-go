@@ -158,8 +158,8 @@
           <enhanced:img
             src={service.image}
             alt={service.title}
-            class="w-full h-42 object-cover rounded-lg"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            class="h-42 object-cover rounded-lg"
+            sizes="(max-width: 640px) 100vw"
             width="640"
             height="400"
           />
