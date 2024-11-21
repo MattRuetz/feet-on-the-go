@@ -43,7 +43,7 @@
         </p>
         <p>
           During my years in community care nursing, I witnessed firsthand the
-          severe consequences of neglected foot health - from serious ulcers to
+          consequences of neglected foot health - from serious ulcers to
           gangrene and even amputations. These experiences shaped my mission at
           Feet On The Go.
         </p>

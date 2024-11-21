@@ -14,7 +14,6 @@
   import happyPatient from "$lib/images/happy-patient.png?enhanced";
   import diabetes from "$lib/images/diabetes.jpg?enhanced";
   import footMassage2 from "$lib/images/foot-massage2.jpg?enhanced";
-  import footMassage from "$lib/images/foot-massage.jpg?enhanced";
 
   const services = [
     {
@@ -123,14 +122,14 @@
 
 <section class="welcome">
   <div class="narrow-container text-center space-y-8">
-    <h2>Expert Nursing Foot Care at Your Doorstep</h2>
+    <h2>Nursing Foot Care at Your Doorstep</h2>
     <div class="minimal-divider"></div>
     <p>
       Welcome to <strong>Feet On The Go</strong>, your trusted partner for
       professional foot care in Kitchener, Waterloo, Cambridge, Woodstock, and
       Ayr. We specialize in providing personalized foot care services that cater
-      to your unique needs, whether you require expert nursing foot care,
-      diabetic foot management, or relief from common foot ailments.
+      to your unique needs, whether you require nursing foot care, diabetic foot
+      management, or relief from common foot ailments.
     </p>
     <p>
       With a focus on compassionate care and preventative education, we strive
@@ -212,51 +211,6 @@
   </div>
 </section>
 
-<section class="info-section-2">
-  <div
-    class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
-  >
-    <div class="col-span-1 space-y-6 py-4 lg:py-8 order-2 lg:order-1">
-      <div class="space-y-4">
-        <h2 class="text-3xl lg:text-4xl text-start">
-          Foot Massage and Relaxation Treatments
-        </h2>
-        <p>
-          Our Foot Massage and Relaxation Treatments combine therapeutic
-          techniques to promote circulatory health and relaxation.
-        </p>
-        <p>
-          We apply targeted pressure to
-          <strong>stimulate blood flow</strong>, <strong>reduce edema</strong>,
-          and <strong>alleviate myofascial tension</strong> in the lower extremities.
-          These treatments are designed to complement your overall foot care regimen,
-          potentially aiding in the management of conditions such as peripheral neuropathy,
-          plantar fasciitis, and venous insufficiency.
-        </p>
-        <div class="pt-4">
-          <a href="/contact" class="cta-button">Book an Appointment</a>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-span-1 h-[300px] md:h-[600px] order-1 lg:order-2 img-container"
-      class:visible={imageVisibility[1]}
-      use:inview={{
-        threshold: 0.3,
-        onenter: () => (imageVisibility[1] = true),
-      }}
-      in:fade={{ duration: 600 }}
-    >
-      <enhanced:img
-        src={footMassage}
-        alt="Foot Massage"
-        class="w-full h-full object-cover rounded-lg shadow"
-        sizes="(max-width: 640px) 640px, 1280px"
-      />
-    </div>
-  </div>
-</section>
-
 <ReviewSection />
 
 <CTASection />
@@ -290,10 +244,6 @@
 
   .img-container {
     @apply opacity-0 translate-y-4 transition-all duration-500;
-  }
-
-  .info-section-2 {
-    @apply bg-sky-50;
   }
 
   .logo-container {

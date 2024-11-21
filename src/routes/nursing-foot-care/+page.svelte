@@ -11,33 +11,6 @@
     "Blisters or bruises",
     "Swelling",
   ];
-
-  const shoeGuidelines = [
-    {
-      title: "Size",
-      details: [
-        "Have your feet measured every time you purchase new shoes",
-        'Ensure 1/2" of space beyond your longest toe',
-        "Purchase based on your larger foot if sizes differ",
-        "Make sure toe box is deep and wide enough, especially for hammer toes, claw toes or bunions",
-      ],
-    },
-    {
-      title: "Material",
-      details: [
-        "Choose leather or canvas for breathability",
-        "These materials conform better to your foot shape",
-        "Check for absence of inside seams that could cause blisters",
-      ],
-    },
-    {
-      title: "Design",
-      details: [
-        "Select shoes with closed toes and backs for protection",
-        "Ensure satisfactory tread grip",
-      ],
-    },
-  ];
 </script>
 
 <svelte:head>
@@ -105,25 +78,6 @@
         <li>Maintains muscle strength</li>
         <li>Improves balance and prevents falls</li>
       </ul>
-    </div>
-
-    <div class="care-card">
-      <h2>Proper Shoe Fitting Guide</h2>
-      <p class="text-lg text-gray-600 mb-6">
-        Improperly fitting shoes are one of the most common causes of foot
-        problems. Follow these guidelines when purchasing shoes:
-      </p>
-
-      {#each shoeGuidelines as guide}
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4">{guide.title}</h3>
-          <ul class="instruction-list">
-            {#each guide.details as detail}
-              <li>{detail}</li>
-            {/each}
-          </ul>
-        </div>
-      {/each}
     </div>
   </div>
 </section>

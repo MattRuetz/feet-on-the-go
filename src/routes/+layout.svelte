@@ -60,6 +60,11 @@
           onclick={() => (isMobileMenuOpen = false)}>About</a
         >
         <a
+          href="/history"
+          class:active={$page.url.pathname === "/history"}
+          onclick={() => (isMobileMenuOpen = false)}>History</a
+        >
+        <a
           href="/nursing-foot-care"
           class:active={$page.url.pathname === "/nursing-foot-care"}
           onclick={() => (isMobileMenuOpen = false)}>Nursing Foot Care</a
@@ -102,6 +107,7 @@
         <a href="/">Home</a>
         <a href="/services">Services</a>
         <a href="/about">About</a>
+        <a href="/history">History</a>
         <a href="/nursing-foot-care">Nursing Foot Care</a>
         <a href="/contact">Contact</a>
       </nav>

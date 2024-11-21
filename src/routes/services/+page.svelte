@@ -1,20 +1,17 @@
 <script>
-  import {
-    faPhone,
-    faLocationDot,
-    faClock,
-  } from "@fortawesome/free-solid-svg-icons";
-  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import CTASection from "$lib/components/CTASection.svelte";
 
   const services = [
     {
       id: "mobile-care",
       title: "Mobile Foot Care Services",
-      description: "Professional care where you need it.",
+      description: "Expert foot care delivered directly to you.",
       details: [
-        "<strong>Home Visits:</strong> Enjoy professional foot care in the comfort of your own home.",
-        "<strong>Retirement Home Services:</strong> We provide on-site care for seniors in residential facilities.",
+        "<strong>Home Visits:</strong> Receive professional foot care in the comfort and privacy of your own home.",
+        "<strong>Retirement Home Services:</strong> We provide dedicated on-site care for seniors residing in retirement communities.",
+        "<strong>Group Homes:</strong> Our team offers specialized foot care services tailored for clients in group home settings.",
+        "<strong>Nursing Homes:</strong> We deliver compassionate foot care services to residents in nursing facilities.",
+        "<strong>Homeless Shelters:</strong> Our services extend to individuals in homeless shelters, ensuring everyone has access to essential foot care.",
       ],
     },
     {
@@ -43,7 +40,6 @@
       details: [
         "<strong>Comprehensive Assessments:</strong> Regular check-ups to detect early signs of diabetic foot complications.",
         "<strong>Neuropathy Screening:</strong> We test for reduced sensation to prevent unnoticed injuries.",
-        "<strong>Circulation Checks:</strong> Our nurses monitor blood flow to prevent diabetic ulcers.",
         "<strong>Patient Education:</strong> We provide crucial information on daily diabetic foot care practices.",
       ],
     },
@@ -61,7 +57,7 @@
 
   let whyChooseUs = [
     "<strong>Registered Practical Nurses:</strong> All our foot care specialists are certified RPNs.",
-    "<strong>Sterile Equipment:</strong> We use hospital-grade sterilization techniques for your safety.",
+    "<strong>Sterile Equipment:</strong> We use autoclave sterilization techniques for your safety.",
     "<strong>We Come to You:</strong> Serving Kitchener, Waterloo, Cambridge, Woodstock, and Ayr.",
     "<strong>Flexible Scheduling:</strong> We offer in-home appointments at your convenience.",
   ];

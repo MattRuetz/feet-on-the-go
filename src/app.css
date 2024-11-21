@@ -49,7 +49,7 @@
   }
 
   .mobile-cta-button {
-    @apply block rounded-lg md:hidden px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-xl border border-sky-600 text-sky-600 
+    @apply block rounded-lg md:hidden px-3 py-2 text-base border border-sky-600 text-sky-600;
   }
 
   .outline-btn {
