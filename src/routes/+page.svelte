@@ -154,7 +154,10 @@
           onenter: () => setTimeout(() => handleInView(i), i * 200),
         }}
       >
-        <div in:fade={{ duration: 600, delay: i * 200 }} class="space-y-4">
+        <div
+          in:fade={{ duration: 600, delay: i * 200 }}
+          class="space-y-4 flex flex-col justify-center items-center"
+        >
           <enhanced:img
             src={service.image}
             alt={service.title}
@@ -190,7 +193,7 @@
       <enhanced:img
         src={elderlyCouple}
         alt="Nursing Foot Care"
-        class="w-full h-full object-cover rounded-lg shadow"
+        class="object-cover rounded-lg shadow"
         sizes="(max-width: 640px) 640px, 1280px"
         width="1280"
         height="800"
@@ -233,7 +236,7 @@
   }
 
   .service-grid {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mt-8;
   }
 
   .service-card {
