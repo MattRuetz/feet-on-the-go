@@ -53,60 +53,6 @@
     formData.errors = errors;
     return Object.keys(errors).length === 0;
   }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    // Reset previous submission states
-    formData.submitted = false;
-    formData.errors = {};
-
-    // Validate form
-    if (!validateForm()) {
-      return;
-    }
-
-    formData.isLoading = true;
-
-    try {
-      // Sanitize inputs before sending
-      const sanitizedData = {
-        name: sanitizeInput(formData.name),
-        email: sanitizeInput(formData.email.toLowerCase()),
-        message: sanitizeInput(formData.message),
-      };
-
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Add CSRF token if you have one
-          // "X-CSRF-Token": getCsrfToken(),
-        },
-        body: JSON.stringify(sanitizedData),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send message");
-      }
-
-      // Reset form on success
-      formData = {
-        name: "",
-        email: "",
-        message: "",
-        submitted: true,
-        errors: {},
-        isLoading: false,
-      };
-    } catch (err) {
-      console.error("Error:", err);
-      formData.errors.submit = "Failed to send message. Please try again.";
-      formData.isLoading = false;
-    }
-  }
 </script>
 
 <form
@@ -131,8 +77,15 @@
       }
     };
   }}
-  novalidate
 >
+  <!-- Add honeypot field for spam protection -->
+  <input
+    type="checkbox"
+    name="botcheck"
+    class="hidden"
+    style="display: none;"
+  />
+
   {#if formData.submitted}
     <div class="text-green-600 p-4 bg-green-50 rounded" role="alert">
       Thank you for your message! We'll get back to you soon.
