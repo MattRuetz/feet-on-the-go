@@ -116,13 +116,13 @@
     <div class="footer-contact">
       <p class="footer-heading">Contact Info</p>
       <div class="contact-details">
-        <a href="tel:+15196546363" class="flex items-center space-x-2">
+        <a href="tel:+15196546363" class="flex items-center space-x-4">
           <FontAwesomeIcon icon={faPhone} />
           <span>519-654-6363</span>
         </a>
-        <span class="location flex items-center space-x-2">
+        <span class="location flex items-center space-x-4">
           <FontAwesomeIcon icon={faLocationDot} />
-          <span>Kitchener-Waterloo, Ontario</span>
+          <span>Serving Kitchener, Waterloo, Cambridge, Woodstock, Ayr</span>
         </span>
       </div>
       <a href="/contact" class="footer-cta">Contact Us</a>

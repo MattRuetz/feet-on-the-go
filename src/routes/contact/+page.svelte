@@ -34,7 +34,7 @@
         </a>
         <div class="contact-link">
           <FontAwesomeIcon icon={faLocationDot} />
-          <span>Kitchener-Waterloo, Ontario</span>
+          <span>Kitchener, Waterloo, Cambridge, Woodstock, Ayr</span>
         </div>
       </div>
     </div>
