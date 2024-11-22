@@ -91,13 +91,13 @@
             <FontAwesomeIcon icon={faPhone} class="fa-lg" />
             <span>519-654-6363</span>
           </a>
-          <a
+          <!-- <a
             href="/contact#location"
             class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
           >
             <FontAwesomeIcon icon={faLocationDot} class="fa-lg" />
             <span>Kitchener-Waterloo, Ontario</span>
-          </a>
+          </a> -->
         </div>
         <a
           href="/contact"
