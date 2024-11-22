@@ -225,7 +225,7 @@
 
 <style>
   .hero {
-    @apply bg-gray-50 text-left -mt-8 h-[800px] max-h-[calc(100vh-64px)] overflow-hidden;
+    @apply bg-gray-50 text-left -mt-8 h-[800px] overflow-hidden;
   }
 
   .welcome {
