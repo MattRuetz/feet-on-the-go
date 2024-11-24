@@ -64,9 +64,8 @@
     {#if mounted}
       <div
         class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
-        transition:fade={{ duration: 800 }}
       >
-        <div class="logo-container" transition:fade={{ duration: 600 }}>
+        <div class="logo-container">
           <enhanced:img
             src={tempLogo}
             alt="Feet on the Go Logo"
@@ -99,11 +98,7 @@
             <span>Kitchener-Waterloo, Ontario</span>
           </a> -->
         </div>
-        <a
-          href="/contact"
-          class="cta-button text-base sm:text-xl"
-          transition:fly={{ x: -100, delay: 800, duration: 600 }}
-        >
+        <a href="/contact" class="cta-button text-base sm:text-xl">
           Book an Appointment
         </a>
       </div>
