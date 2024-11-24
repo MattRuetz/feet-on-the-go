@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /nursing-foot-care
+Allow: /contact
+
+# Optimize crawl rate
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://feetonthego.ca/sitemap.xml
+
+# Block access to specific files and directories
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?* 
