@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Contact Us - Feet on the Go</title>
+  <title>Book a Foot Care Visit | Feet on the Go</title>
   <meta
     name="description"
     content="Contact Feet on the Go for professional mobile foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr. Book an appointment today."
@@ -24,22 +24,22 @@
 </section>
 
 <section class="contact-info">
-  <div class="narrow-container grid grid-cols-1 md:grid-cols-2 gap-12">
+  <div class="contact-grid">
     <div class="contact-details">
-      <h2>Get In Touch</h2>
-      <div class="space-y-4">
-        <a href="tel:+15196546363" class="contact-link">
-          <FontAwesomeIcon icon={faPhone} />
-          <span>519-654-6363</span>
-        </a>
-        <div class="contact-link">
-          <FontAwesomeIcon icon={faLocationDot} />
-          <span>Kitchener, Waterloo, Cambridge, Woodstock, Ayr</span>
-        </div>
-      </div>
+      <h2>Call Us</h2>
+      <p>Call to book an appointment or ask a question.</p>
+      <a href="tel:+15196546363" class="cta-button phone-button">
+        <FontAwesomeIcon icon={faPhone} />
+        519-654-6363
+      </a>
+      <h2>Areas We Serve</h2>
+      <p class="service-area">
+        <FontAwesomeIcon icon={faLocationDot} class="area-icon" />
+        <span>Kitchener, Waterloo, Cambridge, Woodstock and Ayr</span>
+      </p>
     </div>
 
-    <div class="contact-form bg-gray-100 p-4 rounded-lg md:bg-transparent">
+    <div class="contact-form">
       <h2>Send a Message</h2>
       <ContactForm />
     </div>
@@ -55,17 +55,32 @@
     @apply max-w-2xl mx-auto mt-4;
   }
 
-  .contact-details {
-    @apply mb-8;
+  .contact-grid {
+    @apply max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start;
   }
 
-  .contact-link {
-    @apply flex items-center justify-center p-3 rounded-lg md:justify-start space-x-4 text-lg md:text-2xl transition-colors;
+  .contact-details h2,
+  .contact-form h2 {
+    @apply text-left mb-3;
   }
-  a.contact-link {
-    @apply bg-gray-100;
+
+  .contact-details p {
+    @apply mb-6;
   }
-  a.contact-link:hover {
-    @apply text-sky-700;
+
+  .phone-button {
+    @apply text-2xl mb-12;
+  }
+
+  .service-area {
+    @apply flex items-start gap-3;
+  }
+
+  .service-area :global(.area-icon) {
+    @apply text-sky-700 mt-1.5 shrink-0;
+  }
+
+  .contact-form {
+    @apply bg-gray-50 border-2 border-gray-200 rounded-xl p-5 sm:p-8;
   }
 </style>

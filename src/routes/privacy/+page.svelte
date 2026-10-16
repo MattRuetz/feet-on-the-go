@@ -38,9 +38,8 @@
       advertising.
     </p>
     <p>
-      <strong>Hosting and fonts.</strong> The site is hosted by Vercel, and its fonts
-      load from Google Fonts. Both receive your IP address when your browser loads
-      the site, which they need to deliver the pages.
+      <strong>Hosting.</strong> The site is hosted by Vercel, which receives your
+      IP address when your browser loads the site. It needs this to deliver the pages.
     </p>
 
     <h2>Who we share it with</h2>

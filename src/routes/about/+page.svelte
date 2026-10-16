@@ -1,12 +1,10 @@
 <script>
-  import { fade } from "svelte/transition";
-  import { inview } from "$lib/actions";
   import CTASection from "$lib/components/CTASection.svelte";
   import nurse from "$lib/images/nurse.jpg?enhanced";
 </script>
 
 <svelte:head>
-  <title>About - Feet on the Go</title>
+  <title>About Kelly Ferreira, RPN | Feet on the Go</title>
   <meta
     name="description"
     content="Meet Kelly Ferreira, RPN and owner of Feet on the Go. Providing professional nursing foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr with over 10 years of experience."
@@ -26,7 +24,7 @@
 
 <section class="about">
   <div class="narrow-container">
-    <div class="about-content" use:inview in:fade>
+    <div class="about-content">
       <enhanced:img
         src={nurse}
         alt="Kelly Ferreira, RPN"
@@ -101,15 +99,19 @@
   }
 
   .about-content {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-8; /* Changed to 2 columns for better responsiveness */
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
   }
 
-  .about-image {
-    @apply col-span-1 h-[300px] lg:h-[500px] object-cover rounded-lg shadow-lg; /* Adjusted to span 1 column */
+  .about-content :global(.about-image) {
+    @apply w-full h-[300px] md:h-full max-h-[560px] object-cover object-top rounded-xl;
   }
 
   .content-box {
-    @apply col-span-2 space-y-6 bg-white p-8 rounded-lg shadow-lg border-2 border-sky-100; /* Adjusted to span 1 column */
+    @apply md:col-span-2 space-y-6 bg-white p-6 sm:p-8 rounded-xl border-2 border-sky-100;
+  }
+
+  .content-box h2 {
+    @apply text-left;
   }
 
   .mission-statement {
@@ -133,7 +135,7 @@
   }
 
   .expertise-item {
-    @apply bg-white p-6 rounded-lg shadow-md;
+    @apply bg-white p-6 rounded-xl border-2 border-sky-100;
   }
 
   .expertise-item h3 {
