@@ -139,7 +139,11 @@
   </div>
 
   <div class="footer-bottom">
-    <p>© {new Date().getFullYear()} Feet on the Go</p>
+    <p>
+      © {new Date().getFullYear()} Feet on the Go ·
+      <a href="/privacy">Privacy</a> ·
+      <a href="/terms">Terms</a>
+    </p>
     <p>
       Website made by <a
         href="https://mattruetz.com"
