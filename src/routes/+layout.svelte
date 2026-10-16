@@ -23,6 +23,15 @@
   }
 </script>
 
+<svelte:head>
+  {#if !$page.error}
+    <link
+      rel="canonical"
+      href={`https://feetonthego.com${$page.url.pathname}`}
+    />
+  {/if}
+</svelte:head>
+
 <header class="sticky top-0 bg-white z-50">
   <div class="narrow-container">
     <div

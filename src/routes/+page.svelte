@@ -36,14 +36,12 @@
     },
   ];
 
-  let mounted = $state(false);
   let serviceVisibility = $state(services.map(() => false));
   let imageVisibility = $state([false, false]);
 
   onMount(() => {
     // Watch for icon changes
     dom.watch();
-    mounted = true;
   });
 
   function handleInView(index) {
@@ -61,48 +59,46 @@
 
 <section class="hero relative">
   <div class="hero-content narrow-container h-full relative z-10">
-    {#if mounted}
-      <div
-        class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
-      >
-        <div class="logo-container">
-          <enhanced:img
-            src={tempLogo}
-            alt="Feet on the Go Logo"
-            class="w-48 sm:w-64 md:w-auto"
-            sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
-            width="320"
-            height="80"
-          />
-        </div>
-        <h1 class="text-3xl sm:text-5xl text-gray-800">
-          Professional Foot Care in Your Home
-        </h1>
-        <p class="tagline text-lg sm:text-xl">
-          Bringing comfort and care directly to you in Kitchener, Waterloo,
-          Cambridge, Woodstock, and Ayr
-        </p>
-        <div class="space-y-4">
-          <a
-            href="tel:+15196546363"
-            class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
-          >
-            <FontAwesomeIcon icon={faPhone} class="fa-lg" />
-            <span>519-654-6363</span>
-          </a>
-          <!-- <a
+    <div
+      class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
+    >
+      <div class="logo-container">
+        <enhanced:img
+          src={tempLogo}
+          alt="Feet on the Go Logo"
+          class="w-48 sm:w-64 md:w-auto"
+          sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
+          width="320"
+          height="80"
+        />
+      </div>
+      <h1 class="text-3xl sm:text-5xl text-gray-800">
+        Professional Foot Care in Your Home
+      </h1>
+      <p class="tagline text-lg sm:text-xl">
+        Bringing comfort and care directly to you in Kitchener, Waterloo,
+        Cambridge, Woodstock, and Ayr
+      </p>
+      <div class="space-y-4">
+        <a
+          href="tel:+15196546363"
+          class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
+        >
+          <FontAwesomeIcon icon={faPhone} class="fa-lg" />
+          <span>519-654-6363</span>
+        </a>
+        <!-- <a
             href="/contact#location"
             class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
           >
             <FontAwesomeIcon icon={faLocationDot} class="fa-lg" />
             <span>Kitchener-Waterloo, Ontario</span>
           </a> -->
-        </div>
-        <a href="/contact" class="cta-button text-base sm:text-xl">
-          Book an Appointment
-        </a>
       </div>
-    {/if}
+      <a href="/contact" class="cta-button text-base sm:text-xl">
+        Book an Appointment
+      </a>
+    </div>
   </div>
   <div class="absolute inset-0">
     <div

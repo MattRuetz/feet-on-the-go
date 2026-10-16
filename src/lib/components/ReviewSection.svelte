@@ -1,22 +1,12 @@
 <script>
-  import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { inview } from "$lib/actions";
+  import reviews from "$lib/data/reviews.json";
 
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-  let reviews = $state([]);
-
-  let mounted = $state(false);
-  let reviewVisibility = $state([]);
-
-  onMount(async () => {
-    const response = await fetch("/reviews.json");
-    reviews = await response.json();
-    reviewVisibility = reviews.map(() => false);
-    mounted = true;
-  });
+  let reviewVisibility = $state(reviews.map(() => false));
 
   function handleInView(i) {
     console.log(`Review ${i} is in view`);
@@ -24,7 +14,7 @@
   }
 </script>
 
-{#if reviews.length > 0 && mounted}
+{#if reviews.length > 0}
   <section class="reviews" in:fade={{ duration: 800 }}>
     <div class="container mx-auto">
       <h2>What Our Clients Say</h2>
