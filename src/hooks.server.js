@@ -4,6 +4,7 @@ const redirects = {
   "/contact_information.php": "/contact",
   "/services.php": "/services",
   "/nursing_foot_care.php": "/nursing-foot-care",
+  "/history.php": "/history",
 };
 
 export function handle({ event, resolve }) {

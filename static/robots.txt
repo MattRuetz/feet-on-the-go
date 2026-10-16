@@ -9,7 +9,7 @@ Allow: /contact
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://feetonthego.ca/sitemap.xml
+Sitemap: https://feetonthego.com/sitemap.xml
 
 # Block access to specific files and directories
 Disallow: /api/
