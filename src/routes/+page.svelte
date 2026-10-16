@@ -71,14 +71,16 @@
 </svelte:head>
 
 <section class="hero">
-  <enhanced:img
-    src={footMassage2}
-    alt=""
-    class="hero-image"
-    sizes="100vw"
-    fetchpriority="high"
-  />
-  <div class="hero-overlay"></div>
+  <div class="hero-media">
+    <enhanced:img
+      src={footMassage2}
+      alt=""
+      class="hero-image"
+      sizes="(min-width: 1024px) 50vw, 100vw"
+      fetchpriority="high"
+    />
+    <div class="hero-fade"></div>
+  </div>
   <div class="narrow-container hero-content">
     <div class="hero-text">
       <h1>Professional Foot Care in Your Home</h1>
@@ -172,24 +174,37 @@
 <CTASection />
 
 <style>
+  /* The photo never sits behind the text. Small screens get it as a band
+     above the text; large screens show it on the right half, fading into
+     the white text column. */
   .hero {
-    @apply relative overflow-hidden bg-gray-50 flex items-center min-h-[32rem] md:min-h-[38rem] py-16;
+    @apply relative overflow-hidden bg-white p-0 lg:flex lg:items-center lg:min-h-[38rem];
   }
 
-  .hero :global(.hero-image) {
-    @apply absolute inset-0 w-full h-full object-cover;
+  .hero-media {
+    @apply relative h-56 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-auto;
   }
 
-  .hero-overlay {
-    @apply absolute inset-0 bg-white/90 md:bg-transparent md:bg-gradient-to-r from-white from-35% via-white/90 via-55% to-white/10;
+  .hero-media :global(.hero-image) {
+    @apply w-full h-full object-cover object-[62%_50%];
+  }
+
+  .hero-fade {
+    @apply hidden lg:block absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white to-transparent;
   }
 
   .hero-content {
-    @apply relative w-full;
+    @apply relative w-full py-10 sm:py-14 lg:py-20;
   }
 
   .hero-text {
     @apply max-w-2xl space-y-6;
+  }
+
+  /* Text stays on the white side; the solid buttons may overlap the fade */
+  .hero-text h1,
+  .tagline {
+    @apply max-w-xl;
   }
 
   .hero-text h1 {
