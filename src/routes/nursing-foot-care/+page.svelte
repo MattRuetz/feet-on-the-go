@@ -14,10 +14,10 @@
 </script>
 
 <svelte:head>
-  <title>Nursing Foot Care Guide - Feet on the Go</title>
+  <title>Daily Foot Care Tips from a Nurse | Feet on the Go</title>
   <meta
     name="description"
-    content="Learn essential foot care tips and practices for maintaining healthy feet. Expert advice from Feet on the Go's nursing professionals."
+    content="How to check, wash and moisturize your feet every day, and why walking helps. Foot care tips from Feet on the Go, mobile nursing foot care in Kitchener-Waterloo."
   />
 </svelte:head>
 
@@ -37,7 +37,7 @@
   <div class="narrow-container">
     <div class="care-card">
       <h2>Daily Foot Examination</h2>
-      <p class="text-lg text-gray-600 mb-6">
+      <p class="mb-6">
         The first step is identifying problems before they become serious.
         Examine your feet daily in good lighting conditions and watch for:
       </p>
@@ -49,7 +49,7 @@
           </li>
         {/each}
       </ul>
-      <p class="mt-6 text-gray-600">
+      <p class="mt-6">
         Identifying these issues early allows professionals like Feet on the Go
         to address problems before they become serious. As with anything, the
         sooner it is caught, the easier it is to treat.
@@ -69,9 +69,7 @@
 
     <div class="care-card">
       <h2>Stay Active</h2>
-      <p class="text-lg text-gray-600">
-        Walking provides multiple benefits for foot health:
-      </p>
+      <p>Walking provides multiple benefits for foot health:</p>
       <ul class="benefit-list">
         <li>Improves circulation</li>
         <li>Reduces risk of blood clots</li>
@@ -90,11 +88,11 @@
   }
 
   .hero-text {
-    @apply max-w-2xl mx-auto mt-4;
+    @apply max-w-3xl mx-auto mt-4;
   }
 
   .care-card {
-    @apply bg-white rounded-lg shadow p-8 mb-12 border-2 border-sky-100;
+    @apply max-w-3xl mx-auto bg-white rounded-xl p-6 sm:p-8 mb-8 sm:mb-10 border-2 border-sky-100;
   }
 
   .check-list {
@@ -102,15 +100,15 @@
   }
 
   .check-list li {
-    @apply flex items-center space-x-3 text-lg;
+    @apply flex items-center gap-3 text-base sm:text-lg md:text-xl;
   }
 
   .instruction-list {
-    @apply space-y-3 list-disc pl-6 text-lg text-gray-600;
+    @apply space-y-3 list-disc pl-6 text-base sm:text-lg md:text-xl text-gray-800 marker:text-sky-700;
   }
 
   .benefit-list {
-    @apply mt-4 space-y-2 list-disc pl-6 text-lg text-gray-600;
+    @apply mt-4 space-y-2 list-disc pl-6 text-base sm:text-lg md:text-xl text-gray-800 marker:text-sky-700;
   }
 
   h2 {

@@ -1,14 +1,8 @@
 <script>
-  import { onMount } from "svelte";
-  import { fly, fade } from "svelte/transition";
-  import { dom } from "@fortawesome/fontawesome-svg-core";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
-  import { faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-  // custom actions
-  import { inview } from "$lib/actions";
+  import { faPhone } from "@fortawesome/free-solid-svg-icons";
   import ReviewSection from "$lib/components/ReviewSection.svelte";
   import CTASection from "$lib/components/CTASection.svelte";
-  import tempLogo from "$lib/images/temp_logo.png?enhanced";
   import elderlyCouple from "$lib/images/elderly-couple.jpg?enhanced";
   import footCare from "$lib/images/foot-care.jpg?enhanced";
   import happyPatient from "$lib/images/happy-patient.png?enhanced";
@@ -18,100 +12,88 @@
   const services = [
     {
       title: "Foot Care",
-      anchor: "foot-care",
-      description: "Professional foot care services",
+      anchor: "nail-care",
+      description: "Toenail trimming, ingrown toenails, corns and calluses.",
       image: footCare,
     },
     {
       title: "Home Visits",
-      anchor: "home-visits",
-      description: "Convenient care in your home",
+      anchor: "mobile-care",
+      description:
+        "Care at home, in retirement homes, nursing homes and group homes.",
       image: happyPatient,
     },
     {
       title: "Diabetic Foot Care",
       anchor: "diabetic-care",
-      description: "Specialized diabetic foot care",
+      description:
+        "Regular foot checks and neuropathy screening for people with diabetes.",
       image: diabetes,
     },
   ];
 
-  let serviceVisibility = $state(services.map(() => false));
-  let imageVisibility = $state([false, false]);
-
-  onMount(() => {
-    // Watch for icon changes
-    dom.watch();
-  });
-
-  function handleInView(index) {
-    serviceVisibility[index] = true;
-  }
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    name: "Feet on the Go",
+    url: "https://feetonthego.com/",
+    telephone: "+1-519-654-6363",
+    description:
+      "Mobile nursing foot care at home, in retirement homes and in care facilities.",
+    founder: {
+      "@type": "Person",
+      name: "Kelly Ferreira",
+      jobTitle: "Registered Practical Nurse",
+    },
+    areaServed: ["Kitchener", "Waterloo", "Cambridge", "Woodstock", "Ayr"].map(
+      (name) => ({
+        "@type": "City",
+        name,
+        containedInPlace: { "@type": "AdministrativeArea", name: "Ontario" },
+      }),
+    ),
+  };
+  const organizationJsonLd =
+    '<script type="application/ld+json">' +
+    JSON.stringify(organization) +
+    "</" +
+    "script>";
 </script>
 
 <svelte:head>
-  <title>Feet on the Go - Professional Mobile Foot Care Services</title>
+  <title>Feet on the Go | In-Home Nursing Foot Care in Kitchener-Waterloo</title
+  >
   <meta
     name="description"
-    content="Professional mobile foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr. Specializing in senior care, diabetic foot care, and home visits."
+    content="Nursing foot care at home from a Registered Practical Nurse in Kitchener, Waterloo, Cambridge, Woodstock and Ayr. Toenail trimming, corns, calluses and diabetic foot care."
   />
+  {@html organizationJsonLd}
 </svelte:head>
 
-<section class="hero relative">
-  <div class="hero-content narrow-container h-full relative z-10">
-    <div
-      class="hero-text w-full md:w-1/2 h-full flex flex-col items-start justify-center space-y-6 sm:space-y-8"
-    >
-      <div class="logo-container">
-        <enhanced:img
-          src={tempLogo}
-          alt="Feet on the Go Logo"
-          class="w-48 sm:w-64 md:w-auto"
-          sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
-          width="320"
-          height="80"
-        />
-      </div>
-      <h1 class="text-3xl sm:text-5xl text-gray-800">
-        Professional Foot Care in Your Home
-      </h1>
-      <p class="tagline text-lg sm:text-xl">
+<section class="hero">
+  <enhanced:img
+    src={footMassage2}
+    alt=""
+    class="hero-image"
+    sizes="100vw"
+    fetchpriority="high"
+  />
+  <div class="hero-overlay"></div>
+  <div class="narrow-container hero-content">
+    <div class="hero-text">
+      <h1>Professional Foot Care in Your Home</h1>
+      <p class="tagline">
         Bringing comfort and care directly to you in Kitchener, Waterloo,
         Cambridge, Woodstock, and Ayr
       </p>
-      <div class="space-y-4">
-        <a
-          href="tel:+15196546363"
-          class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
-        >
-          <FontAwesomeIcon icon={faPhone} class="fa-lg" />
-          <span>519-654-6363</span>
+      <div class="hero-actions">
+        <a href="tel:+15196546363" class="cta-button">
+          <FontAwesomeIcon icon={faPhone} />
+          <span class="whitespace-nowrap">Call 519-654-6363</span>
         </a>
-        <!-- <a
-            href="/contact#location"
-            class="flex items-center space-x-4 text-xl hover:text-sky-700 transition-colors"
-          >
-            <FontAwesomeIcon icon={faLocationDot} class="fa-lg" />
-            <span>Kitchener-Waterloo, Ontario</span>
-          </a> -->
+        <a href="/contact" class="outline-btn">Book an Appointment</a>
       </div>
-      <a href="/contact" class="cta-button text-base sm:text-xl">
-        Book an Appointment
-      </a>
     </div>
-  </div>
-  <div class="absolute inset-0">
-    <div
-      class="absolute inset-0 bg-white/85 sm:bg-white/20 sm:bg-gradient-to-r from-white/95 from-30% via-white/85 via-50% to-transparent z-0"
-    ></div>
-    <enhanced:img
-      src={footMassage2}
-      alt="Professional Foot Care"
-      class="w-full h-full object-cover"
-      sizes="100vw"
-      width="1280"
-      height="800"
-    />
   </div>
 </section>
 
@@ -133,79 +115,51 @@
   </div>
 </section>
 
-<section class="services container mx-auto">
-  <h2>Our Services</h2>
-  <div class="service-grid">
-    {#each services as service, i}
-      <div
-        class="service-card"
-        class:visible={serviceVisibility[i]}
-        use:inview={{
-          threshold: 0.3,
-          onenter: () => setTimeout(() => handleInView(i), i * 200),
-        }}
-      >
-        <div
-          in:fade={{ duration: 600, delay: i * 200 }}
-          class="space-y-4 flex flex-col justify-center items-center"
-        >
+<section class="services">
+  <div class="max-w-6xl mx-auto">
+    <h2>Our Services</h2>
+    <ul class="service-grid">
+      {#each services as service}
+        <li class="service-card">
           <enhanced:img
             src={service.image}
-            alt={service.title}
-            class="h-42 object-cover rounded-lg"
-            sizes="(max-width: 320px) 100vw"
-            width="320"
-            height="200"
+            alt=""
+            class="service-image"
+            sizes="(min-width: 768px) 360px, 100vw"
           />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
-          <a href={`/services#${service.anchor}`} class="outline-btn mt-8"
+          <a href={`/services#${service.anchor}`} class="outline-btn"
             >About {service.title}</a
           >
-        </div>
-      </div>
-    {/each}
+        </li>
+      {/each}
+    </ul>
   </div>
 </section>
 
-<section class="info-section-1">
-  <div
-    class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:space-x-12"
-  >
-    <div
-      class="col-span-1 h-[300px] md:h-[600px] lg:h-auto img-container"
-      class:visible={imageVisibility[0]}
-      use:inview={{
-        threshold: 0.3,
-        onenter: () => (imageVisibility[0] = true),
-      }}
-      in:fade={{ duration: 600 }}
-    >
-      <enhanced:img
-        src={elderlyCouple}
-        alt="Nursing Foot Care"
-        class="object-cover rounded-lg shadow"
-        sizes="(max-width: 640px) 640px, 1280px"
-        width="1280"
-        height="800"
-      />
-    </div>
-    <div class="col-span-1 space-y-6 py-4 lg:py-8">
-      <div class="space-y-4">
-        <h2 class="text-3xl lg:text-4xl text-start">Nursing Foot Care</h2>
-        <p>
-          At Feet On The Go, we combine medical expertise with a gentle touch to
-          provide comprehensive care tailored to your unique needs.
-        </p>
-        <p>
-          Whether you're managing a chronic condition or simply want to maintain
-          healthy feet, our professional nursing foot care services offer the
-          perfect blend of medical knowledge and compassionate care, all in the
-          comfort of your own home or care facility in Kitchener, Waterloo,
-          Cambridge, Woodstock, and Ayr.
-        </p>
-      </div>
-      <div class="pt-4 flex flex-col sm:flex-row gap-4 sm:gap-8">
+<section class="info-section">
+  <div class="info-grid">
+    <enhanced:img
+      src={elderlyCouple}
+      alt=""
+      class="info-image"
+      sizes="(min-width: 1024px) 560px, 100vw"
+    />
+    <div class="space-y-6">
+      <h2 class="text-left">Nursing Foot Care</h2>
+      <p>
+        At Feet On The Go, we combine medical expertise with a gentle touch to
+        provide comprehensive care tailored to your unique needs.
+      </p>
+      <p>
+        Whether you're managing a chronic condition or simply want to maintain
+        healthy feet, our professional nursing foot care services offer the
+        perfect blend of medical knowledge and compassionate care, all in the
+        comfort of your own home or care facility in Kitchener, Waterloo,
+        Cambridge, Woodstock, and Ayr.
+      </p>
+      <div class="info-actions">
         <a href="/contact" class="cta-button">Book an Appointment</a>
         <a href="/nursing-foot-care" class="outline-btn">Foot Care Guide</a>
       </div>
@@ -219,66 +173,84 @@
 
 <style>
   .hero {
-    @apply bg-gray-50 text-left -mt-8 h-[800px] overflow-hidden;
+    @apply relative overflow-hidden bg-gray-50 flex items-center min-h-[32rem] md:min-h-[38rem] py-16;
+  }
+
+  .hero :global(.hero-image) {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-white/90 md:bg-transparent md:bg-gradient-to-r from-white from-35% via-white/90 via-55% to-white/10;
+  }
+
+  .hero-content {
+    @apply relative w-full;
+  }
+
+  .hero-text {
+    @apply max-w-2xl space-y-6;
+  }
+
+  .hero-text h1 {
+    @apply sm:text-5xl md:text-6xl mb-0;
+  }
+
+  .tagline {
+    @apply text-lg sm:text-xl md:text-2xl text-gray-900;
+  }
+
+  .hero-actions,
+  .info-actions {
+    @apply flex flex-col sm:flex-row sm:flex-wrap gap-4 pt-2;
+  }
+
+  .hero-actions a,
+  .info-actions a {
+    @apply sm:whitespace-nowrap;
   }
 
   .welcome {
-    @apply bg-sky-50 py-12 sm:py-20;
+    @apply bg-sky-50;
+  }
+
+  .welcome p {
+    @apply max-w-3xl mx-auto text-left sm:text-center;
   }
 
   .service-grid {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mt-8;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10;
   }
 
   .service-card {
-    @apply bg-gray-50 p-4 sm:p-8 rounded-lg text-center opacity-0 shadow transform translate-y-4 transition-all duration-500;
+    @apply flex flex-col items-center text-center bg-white border-2 border-gray-200 rounded-xl p-5 sm:p-6;
   }
 
-  .service-card.visible,
-  .img-container.visible {
-    @apply opacity-100 translate-y-0;
+  .service-card :global(.service-image) {
+    @apply w-full aspect-[16/10] object-cover rounded-lg mb-6;
   }
 
-  .info-section-1 {
+  .service-card h3 {
+    @apply mb-2;
+  }
+
+  .service-card p {
+    @apply text-gray-700 mb-6 flex-1;
+  }
+
+  .service-card a {
+    @apply w-full px-4 sm:px-4 text-lg;
+  }
+
+  .info-section {
     @apply bg-gray-50;
-    /* @apply container mx-auto py-36; */
   }
 
-  .img-container {
-    @apply opacity-0 translate-y-4 transition-all duration-500;
+  .info-grid {
+    @apply max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center;
   }
 
-  .logo-container {
-    @apply -ml-2 sm:ml-0 w-full;
-  }
-
-  @media (max-width: 640px) {
-    section {
-      @apply py-12;
-    }
-
-    h1 {
-      @apply text-3xl;
-    }
-
-    h2 {
-      @apply text-2xl;
-    }
-
-    h3 {
-      @apply text-xl;
-    }
-
-    p {
-      @apply text-base;
-    }
-
-    .hero {
-      @apply -mt-8 min-h-[600px];
-    }
-
-    .logo-container {
-      @apply w-4/5 max-w-[240px];
-    }
+  .info-grid :global(.info-image) {
+    @apply w-full h-72 sm:h-96 lg:h-[32rem] object-cover rounded-xl;
   }
 </style>

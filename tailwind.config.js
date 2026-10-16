@@ -8,8 +8,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "system-ui", "sans-serif"],
-        display: ["DM Sans", "Georgia", "serif"],
+        sans: [
+          "Atkinson Hyperlegible Next",
+          "Atkinson Fallback",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       fontSize: {
         xs: "0.875rem", // 14px

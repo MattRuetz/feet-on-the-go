@@ -56,7 +56,7 @@
 </script>
 
 <form
-  class="space-y-4"
+  class="space-y-6"
   method="POST"
   use:enhance={() => {
     formData.isLoading = true;
@@ -87,19 +87,25 @@
   />
 
   {#if formData.submitted}
-    <div class="text-green-600 p-4 bg-green-50 rounded" role="alert">
+    <div
+      class="text-green-800 text-lg p-4 bg-green-50 border-2 border-green-200 rounded-lg"
+      role="status"
+    >
       Thank you for your message! We'll get back to you soon.
     </div>
   {/if}
 
   {#if formData.errors.submit}
-    <div class="text-red-600 p-4 bg-red-50 rounded" role="alert">
+    <div
+      class="text-red-800 text-lg p-4 bg-red-50 border-2 border-red-200 rounded-lg"
+      role="alert"
+    >
       {formData.errors.submit}
     </div>
   {/if}
 
   <div>
-    <label for="name" class="block text-lg font-medium text-gray-900">
+    <label for="name" class="block text-lg sm:text-xl font-bold text-gray-900">
       Name <span class="text-red-600">*</span>
     </label>
     <input
@@ -110,19 +116,19 @@
       required
       maxlength="100"
       bind:value={formData.name}
-      class="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-sky-500 focus:ring-sky-500
+      class="mt-2 block w-full rounded-lg border-2 border-gray-400 px-4 py-3 text-lg focus:border-sky-700 focus:ring-sky-700
         {formData.errors.name ? 'border-red-500' : ''}"
       aria-invalid={formData.errors.name ? "true" : "false"}
     />
     {#if formData.errors.name}
-      <p class="mt-1 text-red-600 text-sm" role="alert">
+      <p class="mt-2 text-red-700 text-base" role="alert">
         {formData.errors.name}
       </p>
     {/if}
   </div>
 
   <div>
-    <label for="email" class="block text-lg font-medium text-gray-900">
+    <label for="email" class="block text-lg sm:text-xl font-bold text-gray-900">
       Email <span class="text-red-600">*</span>
     </label>
     <input
@@ -133,19 +139,22 @@
       required
       maxlength="254"
       bind:value={formData.email}
-      class="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-sky-500 focus:ring-sky-500
+      class="mt-2 block w-full rounded-lg border-2 border-gray-400 px-4 py-3 text-lg focus:border-sky-700 focus:ring-sky-700
         {formData.errors.email ? 'border-red-500' : ''}"
       aria-invalid={formData.errors.email ? "true" : "false"}
     />
     {#if formData.errors.email}
-      <p class="mt-1 text-red-600 text-sm" role="alert">
+      <p class="mt-2 text-red-700 text-base" role="alert">
         {formData.errors.email}
       </p>
     {/if}
   </div>
 
   <div>
-    <label for="message" class="block text-lg font-medium text-gray-900">
+    <label
+      for="message"
+      class="block text-lg sm:text-xl font-bold text-gray-900"
+    >
       Message <span class="text-red-600">*</span>
     </label>
     <textarea
@@ -155,26 +164,23 @@
       required
       maxlength="1000"
       bind:value={formData.message}
-      class="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-sky-500 focus:ring-sky-500
+      class="mt-2 block w-full rounded-lg border-2 border-gray-400 px-4 py-3 text-lg focus:border-sky-700 focus:ring-sky-700
         {formData.errors.message ? 'border-red-500' : ''}"
       aria-invalid={formData.errors.message ? "true" : "false"}
     ></textarea>
     {#if formData.errors.message}
-      <p class="mt-1 text-red-600 text-sm" role="alert">
+      <p class="mt-2 text-red-700 text-base" role="alert">
         {formData.errors.message}
       </p>
     {/if}
-    <p class="mt-1 text-sm text-gray-500">
+    <p class="mt-2 text-base text-gray-700">
       {formData.message.length}/1000 characters
     </p>
   </div>
 
   <button
     type="submit"
-    class="inline-flex justify-center items-center rounded-md border border-transparent
-           bg-sky-700 py-2 px-4 text-lg font-medium text-white shadow-sm
-           hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500
-           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+    class="cta-button disabled:opacity-60 disabled:cursor-not-allowed"
     disabled={formData.isLoading}
     aria-busy={formData.isLoading}
   >

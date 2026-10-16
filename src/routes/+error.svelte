@@ -1,106 +1,50 @@
 <script>
   import { page } from "$app/stores";
 
-  // Map common error codes to user-friendly messages
   const errorMessages = {
-    404: "We're sorry, but we couldn't find the page you were looking for.",
-    500: "An internal server error occurred. Our team has been notified.",
-    403: "You don't have permission to access this resource.",
-    401: "Please log in to access this page.",
+    404: "Sorry, we couldn't find the page you were looking for.",
+    500: "Sorry, something went wrong on our end.",
   };
 
-  // Get user-friendly message or use generic message
-  const errorMessage = $state(
-    errorMessages[$page.status] || "An unexpected error occurred.",
+  let errorMessage = $derived(
+    errorMessages[$page.status] || "Sorry, something went wrong.",
   );
 </script>
 
-<div class="error-container">
-  <h1>{$page.status} Error</h1>
+<svelte:head>
+  <title
+    >{$page.status === 404 ? "Page Not Found" : "Error"} | Feet on the Go</title
+  >
+</svelte:head>
 
-  <div class="message">
+<section>
+  <div class="error-container">
+    <h1>{$page.status === 404 ? "Page not found" : "Something went wrong"}</h1>
     <p>{errorMessage}</p>
     {#if $page.error?.message && $page.status !== 404}
       <p class="technical-details">Technical details: {$page.error.message}</p>
     {/if}
-
-    <p>Would you like to:</p>
-
+    <p>
+      You can call us at <a href="tel:+15196546363">519-654-6363</a>, or use one
+      of these links:
+    </p>
     <div class="options">
-      <a href="/" class="button">Return to Home Page</a>
-      {#if $page.status >= 500}
-        <a href="/contact" class="button">Report this Problem</a>
-      {:else}
-        <a href="/contact" class="button">Contact Us for Help</a>
-      {/if}
+      <a href="/" class="cta-button">Go to the Home Page</a>
+      <a href="/contact" class="outline-btn">Contact Us</a>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .error-container {
-    text-align: center;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 800px;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-
-  .message {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin: 2rem 0;
-  }
-
-  .options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-    align-items: center;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    min-width: 250px;
-    transition: background-color 0.2s;
-  }
-
-  .button:hover {
-    background-color: #0056b3;
-  }
-
-  @media (max-width: 600px) {
-    .error-container {
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    .message {
-      font-size: 1.1rem;
-    }
+    @apply max-w-2xl mx-auto text-center space-y-6;
   }
 
   .technical-details {
-    font-size: 0.9rem;
-    color: #666;
-    padding: 1rem;
-    background: #f5f5f5;
-    border-radius: 4px;
-    margin: 1rem 0;
+    @apply text-base text-gray-700 bg-gray-100 rounded-lg p-4;
+  }
+
+  .options {
+    @apply flex flex-col sm:flex-row justify-center gap-4 pt-4;
   }
 </style>

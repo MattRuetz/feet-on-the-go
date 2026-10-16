@@ -1,83 +1,60 @@
 <script>
-  import { fade } from "svelte/transition";
-  import { inview } from "$lib/actions";
   import reviews from "$lib/data/reviews.json";
 
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-  let reviewVisibility = $state(reviews.map(() => false));
-
-  function handleInView(i) {
-    console.log(`Review ${i} is in view`);
-    reviewVisibility[i] = true;
-  }
 </script>
 
 {#if reviews.length > 0}
-  <section class="reviews" in:fade={{ duration: 800 }}>
-    <div class="container mx-auto">
+  <section class="reviews">
+    <div class="max-w-6xl mx-auto">
       <h2>What Our Clients Say</h2>
       <div class="minimal-divider"></div>
 
-      <div class="reviews-grid">
-        {#each reviews as review, i}
-          <div
-            class="grid-item"
-            use:inview={{
-              threshold: 0.3,
-              onenter: () => setTimeout(() => handleInView(i), i * 200),
-            }}
-          >
-            <div
-              class="review-card"
-              transition:fade={{ duration: 300 }}
-              class:visible={reviewVisibility[i]}
-            >
-              <p class="review-text">"{review.review}"</p>
-              <div class="stars mb-4">
-                {#each Array(review.stars).fill(0) as _}
-                  <FontAwesomeIcon icon={faStar} class="text-yellow-500" />
+      <ul class="reviews-grid">
+        {#each reviews as review}
+          <li>
+            <figure class="review-card">
+              <p class="stars">
+                <span class="sr-only">{review.stars} out of 5 stars</span>
+                {#each Array(review.stars) as _}
+                  <FontAwesomeIcon icon={faStar} />
                 {/each}
-                {review.stars} / 5
-              </div>
-              <div class="review-meta">
-                <p class="reviewer-name">- {review.name}</p>
-              </div>
-            </div>
-          </div>
+              </p>
+              <blockquote>
+                <p class="review-text">"{review.review}"</p>
+              </blockquote>
+              <figcaption class="reviewer-name">{review.name}</figcaption>
+            </figure>
+          </li>
         {/each}
-      </div>
+      </ul>
     </div>
   </section>
 {/if}
 
 <style>
   .reviews {
-    @apply pb-24 bg-gradient-to-b from-sky-50 to-white;
+    @apply bg-sky-50;
   }
 
   .reviews-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12;
   }
 
   .review-card {
-    @apply bg-white p-6 rounded-lg shadow shadow-gray-300 opacity-0 translate-y-4 transition-all duration-500;
+    @apply h-full flex flex-col bg-white p-6 sm:p-8 rounded-xl border-2 border-sky-100;
   }
 
-  .review-card.visible {
-    @apply opacity-100 translate-y-0;
+  .stars {
+    @apply flex gap-1 text-amber-500 text-xl mb-4;
   }
 
   .review-text {
-    @apply text-lg italic mb-6;
-  }
-
-  .review-meta {
-    @apply mt-auto;
+    @apply text-gray-900 mb-6;
   }
 
   .reviewer-name {
-    @apply font-semibold text-lg text-sky-800;
+    @apply mt-auto font-bold text-lg text-sky-800;
   }
 </style>

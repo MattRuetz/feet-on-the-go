@@ -1,10 +1,12 @@
 <script>
   import CTASection from "$lib/components/CTASection.svelte";
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
   const services = [
     {
       id: "mobile-care",
-      title: "Mobile Foot Care Services",
+      title: "Mobile Foot Care for Seniors",
       description: "Expert foot care delivered directly to you.",
       details: [
         "<strong>Home Visits:</strong> Receive professional foot care in the comfort and privacy of your own home.",
@@ -16,8 +18,8 @@
     },
     {
       id: "nail-care",
-      title: "Professional Nail Care",
-      description: "Expert nail care services using sterile techniques.",
+      title: "Toenail Trimming and Nail Care",
+      description: "Safe toenail cutting and filing with sterile tools.",
       details: [
         "<strong>Nail Trimming and Filing:</strong> We use sterile techniques to prevent ingrown toenails and reduce thick or Ram's horn nails.",
         "<strong>Ingrown Toenail Treatment:</strong> Our skilled RPNs provide gentle, effective care for painful ingrown nails.",
@@ -64,48 +66,50 @@
 </script>
 
 <svelte:head>
-  <title>Our Services - Feet on the Go</title>
+  <title>In-Home Foot and Nail Care for Seniors | Feet on the Go</title>
   <meta
     name="description"
-    content="Explore our comprehensive foot care services including diabetic care and home visits in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr."
+    content="Toenail trimming, ingrown toenails, corns, calluses and diabetic foot care from a Registered Practical Nurse, at home or in retirement and nursing homes."
   />
 </svelte:head>
 
 <section class="hero">
   <div class="narrow-container">
-    <h1>Our Specialized Foot Care Services</h1>
+    <h1>In-Home Foot and Nail Care</h1>
     <div class="minimal-divider"></div>
     <p class="hero-text">
-      Professional foot care services tailored to your needs, delivered with
-      care and expertise.
+      Nursing foot care from a Registered Practical Nurse, at your home,
+      retirement home or care facility in Kitchener, Waterloo, Cambridge,
+      Woodstock and Ayr.
     </p>
   </div>
 </section>
 
 <section class="services">
-  <div class="narrow-container">
+  <div class="services-list">
     {#each services as service}
-      <div class="service-card" id={service.id}>
-        <div class="service-content">
-          <h2>{service.title}</h2>
-          <p class="service-description">{service.description}</p>
-          <ul class="service-details">
-            {#each service.details as detail}
-              <li>{@html detail}</li>
-            {/each}
-          </ul>
-        </div>
+      <div class="service-block" id={service.id}>
+        <h2>{service.title}</h2>
+        <p class="service-description">{service.description}</p>
+        <ul class="service-details">
+          {#each service.details as detail}
+            <li>{@html detail}</li>
+          {/each}
+        </ul>
       </div>
     {/each}
   </div>
 </section>
 
-<section class="why-choose-us bg-sky-50">
+<section class="why-choose-us">
   <div class="narrow-container">
     <h2>Why Choose Feet On The Go?</h2>
     <ul class="benefits-list">
       {#each whyChooseUs as benefit}
-        <li>{@html benefit}</li>
+        <li>
+          <FontAwesomeIcon icon={faCircleCheck} class="benefit-icon" />
+          <span>{@html benefit}</span>
+        </li>
       {/each}
     </ul>
   </div>
@@ -119,35 +123,46 @@
   }
 
   .hero-text {
-    @apply max-w-2xl mx-auto mt-4;
+    @apply max-w-3xl mx-auto mt-4;
   }
 
-  .service-card {
-    @apply py-16 border-b border-gray-200 last:border-0;
+  .services-list {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .service-block {
+    @apply py-10 sm:py-12 border-b-2 border-gray-100 last:border-0 first:pt-0;
+  }
+
+  .service-block h2 {
+    @apply text-left mb-2 sm:mb-3;
   }
 
   .service-description {
-    @apply text-lg text-gray-600 mb-4;
+    @apply text-gray-700 mb-5;
   }
 
   .service-details {
-    @apply space-y-3 list-disc pl-6;
+    @apply space-y-3 list-disc pl-6 marker:text-sky-700;
   }
 
   .service-details li {
-    @apply text-gray-700;
-  }
-
-  .benefits-list {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mt-8 text-xl;
-  }
-
-  .benefits-list li:before {
-    content: "✓";
-    @apply text-sky-700 mr-2 font-bold text-3xl;
+    @apply text-base sm:text-lg md:text-xl text-gray-800 pl-1;
   }
 
   .why-choose-us {
-    @apply pb-28;
+    @apply bg-sky-50;
+  }
+
+  .benefits-list {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 mt-8 max-w-4xl mx-auto;
+  }
+
+  .benefits-list li {
+    @apply flex items-start gap-4 text-lg sm:text-xl bg-white rounded-xl p-5 border-2 border-sky-100;
+  }
+
+  .benefits-list :global(.benefit-icon) {
+    @apply text-sky-700 text-2xl mt-0.5 shrink-0;
   }
 </style>

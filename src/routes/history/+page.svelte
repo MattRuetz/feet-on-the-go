@@ -1,6 +1,4 @@
 <script>
-  import { fade } from "svelte/transition";
-  import { inview } from "$lib/actions";
   import CTASection from "$lib/components/CTASection.svelte";
   import nurse from "$lib/images/nurse.jpg?enhanced";
   import footHealth from "$lib/images/foot-health.jpg?enhanced";
@@ -8,7 +6,6 @@
 
   const timelineItems = [
     {
-      year: "Early Career",
       title: "The Foundation",
       content:
         "Kelly Ferreira began her journey as a <strong>Registered Practical Nurse (RPN)</strong>, developing expertise in advanced foot care, Alzheimer's care, and wound management <strong>over a decade of dedicated service</strong>.",
@@ -16,7 +13,6 @@
       imageAlt: "Nurse providing patient care",
     },
     {
-      year: "The Inspiration",
       title: "A Need Identified",
       content:
         "During her community care nursing years, Kelly witnessed the severe consequences of neglected foot health, including chronic ulcers and complications leading to amputations. This experience sparked the vision for <strong>Feet On The Go</strong>.",
@@ -24,7 +20,6 @@
       imageAlt: "Community healthcare setting",
     },
     {
-      year: "Present Day",
       title: "Feet On The Go Today",
       content:
         "Now established in <strong>Kitchener-Waterloo</strong>, we provide professional mobile foot care services in Kitchener, Waterloo, Cambridge, Woodstock, and Ayr, emphasizing education and preventative care to help maintain our clients' mobility and quality of life.",
@@ -35,7 +30,7 @@
 </script>
 
 <svelte:head>
-  <title>Our History - Feet on the Go</title>
+  <title>Our History | Feet on the Go</title>
   <meta
     name="description"
     content="Learn about the history of Feet on the Go and our commitment to providing quality foot care in Kitchener-Waterloo."
@@ -58,9 +53,8 @@
     <h2>Our Journey</h2>
     <div class="timeline-grid">
       {#each timelineItems as item, i}
-        <div class="timeline-item" use:inview transition:fade>
+        <div class="timeline-item">
           <div class="content-wrapper">
-            <div class="year-badge">{item.year}</div>
             <div class="content-box">
               <enhanced:img
                 src={item.image}
@@ -124,24 +118,19 @@
   }
 
   .timeline-item {
-    @apply relative pb-8 sm:pb-12;
+    @apply relative;
   }
 
   .content-wrapper {
-    @apply flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center;
-  }
-
-  .year-badge {
-    @apply bg-sky-100 text-sky-800 px-4 py-2 rounded-full font-semibold 
-           text-sm sm:text-base w-auto sm:w-1/5 text-center;
+    @apply max-w-3xl mx-auto;
   }
 
   .content-box {
-    @apply bg-white p-4 sm:p-6 rounded-lg shadow border-2 border-sky-100 flex-1;
+    @apply bg-white p-5 sm:p-8 rounded-xl border-2 border-sky-100;
   }
 
-  .timeline-image {
-    @apply w-full h-32 sm:h-80 object-cover rounded-lg mb-4;
+  .content-box :global(.timeline-image) {
+    @apply w-full h-56 sm:h-80 object-cover rounded-lg mb-6;
   }
 
   .philosophy {
@@ -157,7 +146,7 @@
   }
 
   .commitment-item {
-    @apply bg-white p-4 sm:p-6 rounded-lg shadow-md;
+    @apply bg-white p-5 sm:p-6 rounded-xl border-2 border-sky-100;
   }
 
   .commitment-item h3 {
@@ -165,20 +154,6 @@
   }
 
   .commitment-item p {
-    @apply text-sm sm:text-base;
-  }
-
-  @media (max-width: 640px) {
-    .content-wrapper {
-      @apply px-4;
-    }
-
-    .year-badge {
-      @apply mb-2;
-    }
-
-    .timeline-image {
-      @apply h-48;
-    }
+    @apply text-base sm:text-lg;
   }
 </style>
