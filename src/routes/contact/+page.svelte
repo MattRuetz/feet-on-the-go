@@ -2,6 +2,8 @@
   import ContactForm from "$lib/components/ContactForm.svelte";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+
+  let { data } = $props();
 </script>
 
 <svelte:head>
@@ -41,7 +43,10 @@
 
     <div class="contact-form">
       <h2>Send a Message</h2>
-      <ContactForm />
+      <ContactForm
+        accessKey={data.web3formsKey}
+        copyKey={data.web3formsCopyKey}
+      />
     </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 <script>
-  import { enhance } from "$app/forms";
+  let { accessKey, copyKey } = $props();
 
   let formData = $state({
     name: "",
@@ -53,31 +53,74 @@
     formData.errors = errors;
     return Object.keys(errors).length === 0;
   }
+
+  const sendFailed =
+    "Sorry, your message didn't send. Please try again, or call us at 519-654-6363.";
+
+  function postToWeb3Forms(fields) {
+    return fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(fields),
+    });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    formData.isLoading = true;
+    formData.errors = {};
+
+    const fields = Object.fromEntries(new FormData(event.currentTarget));
+
+    // Web3Forms charges for CC, so a copy goes out as a second submission
+    // under its own key. Only the main submission decides success.
+    if (copyKey) {
+      postToWeb3Forms({ ...fields, access_key: copyKey }).catch((error) =>
+        console.error("Copy submission error:", error),
+      );
+    }
+
+    try {
+      const response = await postToWeb3Forms(fields);
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        console.error("Form submission rejected:", result.message);
+        formData.errors = { submit: sendFailed };
+        return;
+      }
+
+      formData.submitted = true;
+      formData.name = "";
+      formData.email = "";
+      formData.message = "";
+    } catch (error) {
+      console.error("Form submission error:", error);
+      formData.errors = { submit: sendFailed };
+    } finally {
+      formData.isLoading = false;
+    }
+  }
 </script>
 
+<!-- Without JavaScript the form still posts straight to Web3Forms -->
 <form
   class="space-y-6"
+  action="https://api.web3forms.com/submit"
   method="POST"
-  use:enhance={() => {
-    formData.isLoading = true;
-
-    return async ({ result }) => {
-      formData.isLoading = false;
-
-      if (result.type === "success") {
-        formData.submitted = true;
-        formData.name = "";
-        formData.email = "";
-        formData.message = "";
-        formData.errors = {};
-      } else if (result.type === "failure") {
-        formData.errors = result.data?.errors || {
-          submit: "Failed to send message",
-        };
-      }
-    };
-  }}
+  onsubmit={handleSubmit}
 >
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input
+    type="hidden"
+    name="subject"
+    value="New message from the Feet on the Go website"
+  />
+  <input type="hidden" name="from_name" value="Feet on the Go website" />
+
   <!-- Add honeypot field for spam protection -->
   <input
     type="checkbox"
